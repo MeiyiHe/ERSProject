@@ -1,4 +1,6 @@
 import speech_recognition as sr
+import sphinxbase
+import pocketsphinx
 
 # obtain path to "english.wav" in the same folder as this script
 from os import path
