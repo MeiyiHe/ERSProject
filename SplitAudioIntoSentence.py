@@ -9,7 +9,7 @@ from pydub.silence import split_on_silence
 
 sound = AudioSegment.from_mp3("/Users/Siya/Documents/UCSD/ERSP/AudioSource/TestAudio2.MP3")
 chunks = split_on_silence(sound, 
-    # must be silent for at least half a second
+    # must be silent for at least half a second(>=500)
     min_silence_len=1200,
 
     # consider it silent if quieter than -16 dBFS

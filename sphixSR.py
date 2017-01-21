@@ -1,3 +1,5 @@
+#speech to text(voice recognition)
+
 import speech_recognition as sr
 import sphinxbase
 import pocketsphinx
