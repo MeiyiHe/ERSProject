@@ -11,3 +11,7 @@ def similar(a, b):
 
 print similar("apple", "appel")
 print similar("apple", "mango")
+
+print similar("I like to eat beets", "why like to meet feet")
+print similar("I like to eat beets", "I like to eat meat")
+print similar("I like to eat beets", "Like to eat beets")
