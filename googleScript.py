@@ -1,3 +1,4 @@
+# Use speech recognizer to get the text of audio segments
 from sys import argv
 import speech_recognition as sr
 import os
@@ -12,7 +13,7 @@ print "Opening the file..."
 target = open(filename, 'w')
 
 
-unrelated_paths = ['..', './splittedAudioFiles']
+unrelated_paths = ['..', './SmallSnippets']
 chunk_files = (os.path.join(p, o) for p in unrelated_paths
               for o in os.listdir(p)
               if (o.lower().endswith('.wav')

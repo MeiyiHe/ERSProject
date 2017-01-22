@@ -1,3 +1,4 @@
+# Use speech recoginizer to get the text of audio segment
 import speech_recognition as sr
 import os
 
