@@ -15,11 +15,11 @@ for chunk_file in chunk_files:
     with sr.AudioFile(chunk_file) as source:
     	audio = r.record(source) # read the entire audio file
 	try:
-		print("Sphinx thinks you said " + r.recognize_google(audio))
+		print("Google thinks you said " + r.recognize_google(audio))
 	except sr.UnknownValueError:
-		print("Sphinx could not understand audio")
+		print("Google could not understand audio")
 	except sr.RequestError as e:
-	    print("Sphinx error; {0}".format(e))
+	    print("Google error; {0}".format(e))
 
 
 
