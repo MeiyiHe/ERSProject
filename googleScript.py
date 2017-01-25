@@ -30,6 +30,6 @@ for chunk_file in chunk_files:
 		target.write(r.recognize_google(audio))
 		target.write("\n")
 	except sr.UnknownValueError:
-		target.write("Google could not understand audio")
+		target.write("ERROR")
 	except sr.RequestError as e:
 	    target.write("Google error; {0}".format(e))
