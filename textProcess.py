@@ -1,4 +1,8 @@
 #!/usr/bin/python
+# File Name: textProcess
+# Author: Meiyi (Lexi) He
+# Description: TODO
+
 
 import sys
 import string, os
