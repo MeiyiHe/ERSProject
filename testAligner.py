@@ -3,10 +3,13 @@ from difflib import SequenceMatcher
 import speech_recognition as sr
 from os import path
 
+
 # Get the voice inputs
 var = raw_input("Please enter the scripts to be processed: ")
 
-words = var.split()
+input_file = open(var,'rb')
+inputs = input_file.readline()
+words = inputs.split()
 
 combined_sounds = AudioSegment.from_wav(words[0]+".wav")
 
@@ -40,5 +43,7 @@ except sr.UnknownValueError:
 except sr.RequestError as e:
     print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
+print inputs
+print combined
 # Output the accuracy
-print SequenceMatcher(None, var, combined).ratio()
+print SequenceMatcher(None, inputs, combined).ratio()
