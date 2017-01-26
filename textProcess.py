@@ -29,7 +29,7 @@ def analyzer(ifile):
 if __name__ == "__main__":
 	#print "Input file path:"
 	#ifile = raw_input("Which file you want to process? ");
-	analyzer("testTxt1.txt")
+	analyzer("txt1.txt")
 
 	print "\n\n"
 	dictionary = {}
