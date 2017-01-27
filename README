@@ -35,3 +35,10 @@ Lexi:
 							 and store it from the highest frequency to lowest.
 # To Compile & Run : python textProcess.py
 # output: print out in the commandline
+
+Siya:
+------
+5. parseTextGrid.py
+# Description: Parse a text file with TextGrid format and export small chunks of wav files
+# To Compile & Run: python3 parseTextGrid.py filename.txt originalAudio.wav outDirectory
+# Output: small chunks of audio files(.wav) in the target output directory
