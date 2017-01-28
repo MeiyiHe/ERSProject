@@ -10,16 +10,17 @@ var = raw_input("Please enter the scripts to be processed: ")
 input_file = open(var,'rb')
 inputs = input_file.read()
 words = inputs.split()
-path = os.path.dirname(os.path.realpath(__file__))+"/SplittedWav"
-print os.path.join(path, words[0]+".wav")
+#path = os.path.dirname(os.path.realpath(__file__))+"/SplittedWav"
+#print os.path.join(path, words[0]+".wav")
 
 #combined_sounds = AudioSegment.from_wav(os.path.join(path, words[0]+".wav"))
-combined_sounds = AudioSegment.from_wav("/Users/lilusha/Desktop/ERSP/ERSProject/SplittedWav/"+words[0]+".wav")
+combined_sounds = AudioSegment.from_wav(words[0]+".wav")
+print words[0]+".wav"
 # Concatenate the voice inputs
 for i in range(len(words)):
 	if i==0 :
 		continue
-	combined_sounds=combined_sounds+AudioSegment.from_wav("/Users/lilusha/Desktop/ERSP/ERSProject/SplittedWav/"+words[i]+".wav")
+	combined_sounds=combined_sounds+AudioSegment.from_wav(words[i]+".wav")
 
 # Generate the voice outputs
 combined_sounds.export("Output.wav", format="wav")
