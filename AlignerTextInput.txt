@@ -1,1 +1,2 @@
-the dog is
+the dog 
+is

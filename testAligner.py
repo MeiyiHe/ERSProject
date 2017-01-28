@@ -8,7 +8,7 @@ from os import path
 var = raw_input("Please enter the scripts to be processed: ")
 
 input_file = open(var,'rb')
-inputs = input_file.readline()
+inputs = input_file.read()
 words = inputs.split()
 
 combined_sounds = AudioSegment.from_wav(words[0]+".wav")
