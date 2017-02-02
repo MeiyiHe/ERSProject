@@ -57,8 +57,8 @@ for i in range(len(words)):
 
 	segment = audio[start_ms:end_ms]
 	if(words[i]!= "sil"):
-		print("exporting..."+words[i]+".wav")
-		segment.export(soundoutpath+"/"+words[i]+".wav")
+		print("exporting..."+words[i].lower()+".wav")
+		segment.export(soundoutpath+"/"+words[i].lower()+".wav")
 
 print("finished!")
 #PROCESSED

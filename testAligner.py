@@ -2,7 +2,7 @@ from pydub import AudioSegment
 from difflib import SequenceMatcher
 import speech_recognition as sr
 from os import path
-
+import os
 
 # Get the voice inputs
 var = raw_input("Please enter the scripts to be processed: ")
@@ -10,7 +10,11 @@ var = raw_input("Please enter the scripts to be processed: ")
 input_file = open(var,'rb')
 inputs = input_file.read()
 words = inputs.split()
+#path = os.path.dirname(os.path.realpath(__file__))+"/SplittedWav"
+#print os.path.join(path, words[0]+".wav")
 
+#combined_sounds = AudioSegment.from_wav(os.path.join(path, words[0]+".wav"))
+#print words[0]+".wav"
 combined_sounds = AudioSegment.from_wav(words[0]+".wav")
 
 # Concatenate the voice inputs

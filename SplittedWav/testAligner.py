@@ -14,8 +14,9 @@ words = inputs.split()
 #print os.path.join(path, words[0]+".wav")
 
 #combined_sounds = AudioSegment.from_wav(os.path.join(path, words[0]+".wav"))
-combined_sounds = AudioSegment.from_wav(words[0]+".wav")
-print words[0]+".wav"
+fname = words[0].lower()+".wav"
+combined_sounds = AudioSegment.from_wav(fname)
+
 # Concatenate the voice inputs
 for i in range(len(words)):
 	if i==0 :
