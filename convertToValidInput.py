@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# File Name: .py
+# File Name: convertToValidInput.py
 # Author: Meiyi (Lexi) He
 # Description: A program that convert all texts to upper case in a txt file
 # To Compile & Run : python convertAlltoUpper.py 
@@ -10,9 +10,10 @@
 
 import os
 import re
+import string
 
 
-filename = raw_input("File that you want to convert all upper: ") 
+filename = raw_input("File you want to use in Speech Aligner") 
 
 if filename and os.path.isfile(filename):
   with open(filename, 'r') as f:
@@ -24,6 +25,6 @@ if filename and os.path.isfile(filename):
   			if line.startswith('//'):
   				pass
   			else:
-  				f1.write(line.upper().strip())
+  				f1.write(line.upper().translate(None,string.punctuation))
 f.close()
 
