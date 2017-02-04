@@ -4,6 +4,10 @@
 # Description: A program that convert all texts to upper case in a txt file
 # To Compile & Run : python convertAlltoUpper.py 
 # output: 
+# normalize text input 
+# 1) all to upper cases
+# 2) take out punctuations
+
 import os
 
 filename = raw_input("File that you want to convert all upper: ") 
@@ -16,4 +20,5 @@ if filename and os.path.isfile(filename):
       f.write(txt.upper())
 
 f.close()
+
 
