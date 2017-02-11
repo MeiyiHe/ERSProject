@@ -12,21 +12,18 @@ inputs = input_file.read()
 words = inputs.split()
 
 combined_sounds = AudioSegment.from_file(words[0]+".wav")
-combined_sounds = combined_sounds.set_channels(2)
-#print combined_sounds.channels
-
 
 # Concatenate the voice inputs
 for i in range(len(words)):
 	if i==0 :
 		continue
 	new_sound_file = AudioSegment.from_file(words[i] + ".wav")
-	new_sound_file = new_sound_file.set_channels(2)
 	combined_sounds=combined_sounds+new_sound_file
 
 # Generate the voice outputs
 combined_sounds.export("Output.wav", format="wav")
 
+'''
 # obtain path to "english.wav" in the same folder as this script
 AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "Output.wav")
 #AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "french.aiff")
@@ -47,8 +44,9 @@ except sr.UnknownValueError:
     print("Google Speech Recognition could not understand audio")
 except sr.RequestError as e:
     print("Could not request results from Google Speech Recognition service; {0}".format(e))
-
+'''
 print inputs
-print combined
+
+#print combined
 # Output the accuracy
-print SequenceMatcher(None, inputs, combined).ratio()
+#iprint SequenceMatcher(None, inputs, combined).ratio()
