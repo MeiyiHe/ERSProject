@@ -28,11 +28,16 @@ if len(sys.argv) != 3:
 
 folder = sys.argv[1]
 for filename in os.listdir(folder):
+
+	
 	infilename = os.path.join(folder,filename)
 	if not os.path.isfile(infilename): continue
 
+	print(filename)
+
 	#convert text files
-	if infilename.endswith('.txt'):
+	if infilename.endswith(".TextGrid"):
+		print("textfile: "+filename)
 		text=open(infilename, 'r')
 		for line in text:
 			if "item [2]" in line:
@@ -66,6 +71,8 @@ for filename in os.listdir(folder):
 				segment.export(soundoutpath+"/"+words[i]+".wav")
 
 		print("finished!")
+	print("end")
+		
 """
 text = open(sys.argv[1], 'r')
 
