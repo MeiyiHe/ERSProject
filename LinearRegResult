@@ -1,0 +1,22 @@
+		current_features.append(wordCount)
+		current_features.append(sumLength * 1.0 / wordCount)
+		current_features.append(punct)
+		current_features.append(1)
+
+[ 0.42153518  0.09226576  0.40796931 -0.28122593]
+[ 4.00094485]
+
+y = 0.42153518 * WordCount + 0.09226576 * avgWordLength + 0.40796931*punct - 0.28
+
+
+
+[ 0.15849445 -0.60118076 -0.19572728  5.78369905]
+[ 37.51533136]
+
+y = 0.15849445 * WordCount - 0.60118076 * avgWordLength + -0.19572728 * punct + 5.78369905
+
+
+[ 0.38519708  0.15510897  0.11039992 -0.71827967]
+[ 4.48880318]
+
+y = 0.38519708 * WordCount + 0.15510897 * avgWordLength + 0.11039992*punct -0.71827967
