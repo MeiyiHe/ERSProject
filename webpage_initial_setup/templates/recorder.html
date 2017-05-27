@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+ 	<head>
+ 		<script type="text/javascript" src="{{ url_for('static', filename='src/recorder.js') }}"></script>
+ 		<script type="text/javascript" src="{{ url_for('static', filename='src/Fr.voice.js') }}"></script>
+ 		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+ 		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+ 	<!--	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+ 		
+ 	</head>
+ 	<body>
+ 	<script type="text/javascript" src="{{ url_for('static', filename='js/output_script.js') }}"></script>
+
+    <h1>Voice Recorder</h1>
+<!--    <p>Created By Subin Siby</a> & Open Source community</p> -->
+    
+    <h2>Record</h2>
+		<audio controls id="audio"></audio>
+	<div>
+    <div>
+      <a class="button recordButton" id="record">Record</a>
+   <!--   <a class="button recordButton" id="recordFor5">Record For 5 Seconds</a>-->
+      <a class="button disabled one" id="pause">Pause</a>
+      <a class="button disabled one" id="stop">Reset</a>
+    </div><br/>
+ <!--   
+    <div>
+      <input class="button" type="checkbox" id="live"/>
+      <label for="live">Live Output</label>
+    </div> -->
+		<div data-type="wav">
+			<p>WAV Controls:</p>
+			<a class="button disabled one" id="play">Play</a> 
+			<a class="button disabled one" id="download">Download</a>
+			<a class="button disabled one" id="save">Upload to Server</a>
+<!--      <a class="button disabled one" id="base64">Base64 URL</a>
+      <a class="button disabled one" id="save">Upload to Server</a> -->
+		</div>
+
+	</div>
+<!--    <div data-type="mp3">
+      <p>MP3 Controls:</p>
+      <a class="button disabled one" id="play">Play</a>
+      <a class="button disabled one" id="download">Download</a>
+      <a class="button disabled one" id="base64">Base64 URL</a>
+      <a class="button disabled one" id="save">Upload to Server</a>
+    </div>-->
+
+<!--
+    <div id="output_script">
+    </div>
+    <div>
+    	<span id="next_button">Next!</span>
+    </div>
+-->
+	
+	<div><br><br>
+		Script: <br>
+		<textarea class="script_field" type="text" id="field" disabled="disabled" > </textarea><br><br>
+	<button onclick="myFunction()">Show Next Script</button>
+	
+	</div>
+	<div id="myprogressbar"></div>
+<!--
+	<div class="w3-light-grey">
+  		<div class="w3-container w3-green w3-center" style="width:25%">percent</div>
+	</div><br>
+	
+-->
+	<br><br>
+	
+<!--	<base href="/Users/Siya/Downloads/webpage_initial_setup/templates/"/> -->
+	<script>
+
+	i=0
+	var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
+	//var percent = 0.toFixed(2)
+	//console.log(result.length)
+	var progressBar;
+	window.onload = function(){
+		progressBar = new ProgressBar("myprogressbar", {'width':'100%', 'height':'3px'});
+		progressBar.setPercent(0);
+	}
+	function myFunction() {
+		//if(i<2){
+		if(i < result.length) {
+
+			document.getElementById("field").value = result[i]
+			//percent = i.toFixed(2)/result.length.toFixed(2)
+			//percent = float(i)/ float(result.length)
+    		//document.getElementById("field").value = script_list;
+    		progressBar.setPercent(60);
+    		i++;
+    	}
+    	else {
+    		var text = "REACH END OF YOUR SCRIPT "
+    		//percent = 1.0
+    		document.getElementById('field').value = text;
+    		//document.getElementById("field").attr('size', $document.getElementById("field").val().length);
+    		
+    	}
+    	
+	}
+	</script>
+	
+    <canvas id="level" height="200" width="500"></canvas>
+		<style>
+		.button{
+			display: inline-block;
+			vertical-align: middle;
+			margin: 0px 5px;
+			padding: 5px 12px;
+			cursor: pointer;
+			outline: none;
+			font-size: 13px;
+			text-decoration: none !important;
+			text-align: center;
+			color:#fff;
+			background-color: #4D90FE;
+			background-image: linear-gradient(top,#4D90FE, #4787ED);
+			background-image: -ms-linear-gradient(top,#4D90FE, #4787ED);
+			background-image: -o-linear-gradient(top,#4D90FE, #4787ED);
+			background-image: linear-gradient(top,#4D90FE, #4787ED);
+			border: 1px solid #4787ED;
+			box-shadow: 0 1px 3px #BFBFBF;
+		}
+		a.button{
+			color: #fff;
+		}
+		.button:hover{
+			box-shadow: inset 0px 1px 1px #8C8C8C;
+		}
+		.button.disabled{
+			box-shadow:none;
+			opacity:0.7;
+		}
+		.script_field{
+			width: 300px; 
+			height: 300px;
+		}
+
+}
+    canvas{
+      display: block;
+    }
+		</style>
+ 	</body>
+</html>

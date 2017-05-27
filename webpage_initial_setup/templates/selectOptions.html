@@ -1,0 +1,13 @@
+<!doctype html>
+
+<title>Select your options</title>
+<h3>Hi, {{ user }}. <h3>
+
+<form action="{{url_for('select_options')}}" method="POST" enctype="multipart/form-data">
+	
+	Get the audio synthesized from your library<br>
+	<input type="submit" name="button1" value='synthesize' style="height:500px; width: 200px"><br><br>
+	Train your library<br>
+	<input type='submit' name='button1' value='add_lib' style="height:500px; width: 200px">
+	
+</form>

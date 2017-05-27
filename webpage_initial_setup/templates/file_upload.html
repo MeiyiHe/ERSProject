@@ -1,0 +1,11 @@
+<!doctype html>
+
+<title>Upload Text File</title>
+<h3>Hi, {{ user }}. <h3>
+
+<h1>Upload Text File</h1>
+<form action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
+    <p><input type='file' name='file' multiple=''>
+    <input type='submit' value='upload'>
+    </p>
+</form>
