@@ -3,6 +3,7 @@ from werkzeug import secure_filename
 import os
 from importFunctionTest import rewritten
 from collections import defaultdict
+from uniqueList import setCover
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = 'txt'
@@ -62,6 +63,8 @@ def upload_file():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'],filename)
             file.save(filepath)
             script.append(filepath)
+            setCover('abkTalkNote.txt')
+            
             return redirect(url_for('select_options',user=user))
             #return render_template('requestAudio.html')
     return render_template('file_upload.html', user=user,greetings= greetings)
