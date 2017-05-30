@@ -105,7 +105,7 @@ $(document).ready(function(){
         $("#audio")[0].play();
       }, "URL");
     }
-    //restore();
+    restore();
   });
 
   $(document).on("click", "#download:not(.disabled)", function(){
@@ -113,12 +113,18 @@ $(document).ready(function(){
       Fr.voice.exportMP3(function(url){
         $("<a href='" + url + "' download='MyRecording.mp3'></a>")[0].click();
       }, "URL");
-    }else{
+    }else{ 
       Fr.voice.export(function(url){
         $("<a href='" + url + "' download='MyRecording.wav'></a>")[0].click();
       }, "URL");
+      
+      /*
+      Fr.voice.export(function(url){
+        $("<a href='" + url + )
+      }, "URL");*/
     }
     restore();
+    //window.alert(url);
   });
 
   $(document).on("click", "#base64:not(.disabled)", function(){

@@ -5,13 +5,14 @@ from importFunctionTest import rewritten
 from collections import defaultdict
 app = Flask(__name__)
 
-
-UPLOAD_FOLDER = '../uploads/'
+ALLOWED_EXTENSIONS = 'txt'
+UPLOAD_FOLDER = '/Users/Siya/Documents/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
 script = []
 audio = []
 text = []
+processed_script = []
 loginChecking = defaultdict()
 loginChecking['meiyi'] = 'mehe@ucsd.edu'
 
@@ -81,7 +82,7 @@ def upload_audio():
 def select_options():
     if request.method == 'POST':
         if request.form['button1'] == 'add_lib':
-            return redirect(url_for('upload_audio', user=user))
+            return redirect(url_for('recorder', user=user))
         elif request.form['button1'] == 'synthesize':
             #not yet implemented
             return hello()
@@ -101,7 +102,35 @@ def review():
     #return render_template('review.html',text=txt )
 @app.route('/recorder')
 def recorder():
-    return render_template('recorder.html')
+    #read_uploaded_file()
+    tmp_list = read_uploaded_file()
+    print tmp_list
+    return render_template('recorder.html',sentence_list=tmp_list)
+
+@app.route('/read_file', methods=['GET'])
+def read_uploaded_file():
+    filename = script[0]
+    tmp = []
+    #filename = secure_filename(request.args.get('filename'))
+    try:
+        if filename and allowed_filename(filename):
+            print "file allowed"
+            with open(os.path.join(app.config['UPLOAD_FOLDER'], filename)) as f:
+                for char in f.read():
+                    if char != '\n':
+                        tmp.append(char)
+                sentence_list = ''.join(tmp)
+                sentence_list = unicode(sentence_list, 'ascii', 'ignore')
+                
+
+            return sentence_list
+    except IOError:
+        pass
+    return "Unable to read file"
+
+def allowed_filename(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1] == ALLOWED_EXTENSIONS
 
 
 

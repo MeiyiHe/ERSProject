@@ -41,8 +41,41 @@
     </div>-->
 
 
+	<div><br><br>
+		Script: <br>
+		<textarea class="script_field" type="text" id="field" disabled="disabled" > </textarea><br><br>
+	<button onclick="myFunction()" id="next_button">Show Next Script</button>
+	
+	</div>
+	<br><br>
+	<script>
 
+	i=0
+	var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
+	//var percent = 0.toFixed(2)
+	//console.log(result.length)
+	
+	function myFunction() {
+		//if(i<2){
+		if(i < result.length) {
 
+			document.getElementById("field").value = result[i]
+			//percent = i.toFixed(2)/result.length.toFixed(2)
+			//percent = float(i)/ float(result.length)
+    		//document.getElementById("field").value = script_list;
+    		i++;
+    	}
+    	else {
+    		var text = "REACH END OF YOUR SCRIPT "
+    		//percent = 1.0
+    		document.getElementById('field').value = text;
+    		//document.getElementById("field").attr('size', $document.getElementById("field").val().length);
+    		
+    	}
+    	//document.getElementById('next_button').disabled=true;
+    	
+	}
+	</script>
 
     <canvas id="level" height="200" width="500"></canvas>
 		<style>
@@ -74,6 +107,10 @@
 		.button.disabled{
 			box-shadow:none;
 			opacity:0.7;
+		}
+		.script_field{
+			width: 300px; 
+			height: 300px;
 		}
     canvas{
       display: block;
