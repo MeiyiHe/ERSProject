@@ -1,45 +1,20 @@
 from flask import Flask,abort,render_template,request,redirect,url_for, send_file
 from werkzeug import secure_filename
-from copy import deepcopy
-import os,sys
+import os
 from importFunctionTest import rewritten
-#reload(sys)
-#sys.setdefaultencoding('utf8')
+from collections import defaultdict
 app = Flask(__name__)
-
-
-"""
-from OpenSSL import SSL
-context = SSL.Context(SSL.SSLv23_METHOD)
-cer = os.path.join(os.path.dirname(__file__), 'mpu.crt')
-key = os.path.join(os.path.dirname(__file__), 'mpu.key')
-"""
-# # TLS seems better
-# from OpenSSL import SSL
-# context = SSL.Context(SSL.PROTOCOL_TLSv1)
-# cer = os.path.join(os.path.dirname(__file__), 'mpu.crt')
-# key = os.path.join(os.path.dirname(__file__), 'mpu.key')
-
-
-#app.secret_key = 'somekey'
-
-
 
 ALLOWED_EXTENSIONS = 'txt'
 UPLOAD_FOLDER = '/Users/Siya/Documents/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
-#context = (cer, key)
-#app.run(host='132.239.95.117', debug = True, ssl_context=context)
-# app.run(host='0.0.0.0', port=5000, debug = True, ssl_context=context)
-
-
-
-
 script = []
 audio = []
 text = []
-#sentence_list = []
+processed_script = []
+loginChecking = defaultdict()
+loginChecking['meiyi'] = 'mehe@ucsd.edu'
 
 @app.route('/')
 def index():
@@ -47,14 +22,33 @@ def index():
 
 @app.route('/hello/', methods = ['GET','POST'])
 def hello():
+    global loginChecking
+    print loginChecking
+    global greetings
     if request.method == 'POST':
-        print "requesting name and email"
+        #print "requesting name and email"
         global email
         email = ''.join(request.form['email'])
         global user
         user = ''.join(request.form['userName'])
+        
+        if user in loginChecking and loginChecking[user] == email:
+            #global greetings
+            greetings = "welcome back"
+            
+            # if already exist 
+            print greetings
 
-        return redirect(url_for('upload_file', user=user))    
+            print loginChecking[user]
+        else:
+            #global greetings
+            greetings = "hello, first time user"
+            
+            loginChecking[user] = email
+            print loginChecking
+
+        print greetings
+        return redirect(url_for('upload_file', user=user))
     return render_template('hello.html')
 
 
@@ -70,7 +64,7 @@ def upload_file():
             script.append(filepath)
             return redirect(url_for('select_options',user=user))
             #return render_template('requestAudio.html')
-    return render_template('file_upload.html', user=user)
+    return render_template('file_upload.html', user=user,greetings= greetings)
 
 @app.route('/requestAudio', methods=['GET', 'POST'])
 def upload_audio():
@@ -88,8 +82,7 @@ def upload_audio():
 def select_options():
     if request.method == 'POST':
         if request.form['button1'] == 'add_lib':
-            return redirect(url_for('recorder',user=user))
-            #return redirect(url_for('upload_audio', user=user))
+            return redirect(url_for('recorder', user=user))
         elif request.form['button1'] == 'synthesize':
             #not yet implemented
             return hello()
@@ -138,6 +131,8 @@ def read_uploaded_file():
 def allowed_filename(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1] == ALLOWED_EXTENSIONS
+
+
 
 if __name__ == '__main__':
     app.run(debug = True)

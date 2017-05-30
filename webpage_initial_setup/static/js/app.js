@@ -102,6 +102,7 @@ $(document).ready(function(){
     }else{
       Fr.voice.export(function(url){
         $("#audio").attr("src", url);
+
         $("#audio")[0].play();
       }, "URL");
     }
@@ -114,9 +115,14 @@ $(document).ready(function(){
         $("<a href='" + url + "' download='MyRecording.mp3'></a>")[0].click();
       }, "URL");
     }else{
+/*
       Fr.voice.export(function(url){
         $("<a href='" + url + "' download='MyRecording.wav'></a>")[0].click();
+      }, "URL");*/
+      Fr.voice.export(function(url){
+        $("<a href='" + url + "' download='MyRecording.wav'></a>")[0].click()
       }, "URL");
+
     }
     restore();
   });
