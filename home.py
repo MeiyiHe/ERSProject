@@ -2,29 +2,52 @@ from flask import Flask,abort,render_template,request,redirect,url_for, send_fil
 from werkzeug import secure_filename
 import os
 from importFunctionTest import rewritten
+from collections import defaultdict
 app = Flask(__name__)
 
 
-UPLOAD_FOLDER = '/Users/Siya/Documents/uploads/'
+UPLOAD_FOLDER = '../uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
 
 script = []
 audio = []
 text = []
+loginChecking = defaultdict()
+loginChecking['meiyi'] = 'mehe@ucsd.edu'
+
 @app.route('/')
 def index():
     return redirect(url_for('hello'))
 
 @app.route('/hello/', methods = ['GET','POST'])
 def hello():
+    global loginChecking
+    print loginChecking
+    global greetings
     if request.method == 'POST':
-        print "requesting name and email"
+        #print "requesting name and email"
         global email
         email = ''.join(request.form['email'])
         global user
         user = ''.join(request.form['userName'])
+        
+        if user in loginChecking and loginChecking[user] == email:
+            #global greetings
+            greetings = "welcome back"
+            
+            # if already exist 
+            print greetings
 
-        return redirect(url_for('upload_file', user=user))    
+            print loginChecking[user]
+        else:
+            #global greetings
+            greetings = "hello, first time user"
+            
+            loginChecking[user] = email
+            print loginChecking
+
+        print greetings
+        return redirect(url_for('upload_file', user=user))
     return render_template('hello.html')
 
 
@@ -40,7 +63,7 @@ def upload_file():
             script.append(filepath)
             return redirect(url_for('select_options',user=user))
             #return render_template('requestAudio.html')
-    return render_template('file_upload.html', user=user)
+    return render_template('file_upload.html', user=user,greetings= greetings)
 
 @app.route('/requestAudio', methods=['GET', 'POST'])
 def upload_audio():
