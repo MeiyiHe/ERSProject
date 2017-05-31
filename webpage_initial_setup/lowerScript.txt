@@ -1,7 +1,0 @@
-recall that we perform iterative local moves to minimize skew variation.
-we use three types of local moves.
-we use three types of local moves to minimize variation.
-recall that we minimize skew variation.
-first, we displace the target buffer in eight directions and size the buffer.
-second, we displace eight moves to size the three types of buffer.
-three target moves minimize local variation.
