@@ -1,0 +1,4 @@
+second, we displace eight moves to size the three types of buffer.
+
+recall that we perform iterative local moves to minimize skew variation.
+

@@ -4,6 +4,7 @@ import os
 from importFunctionTest import rewritten
 from collections import defaultdict
 from uniqueList import setCover
+#from uniqueList import setCover
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = 'txt'
@@ -63,7 +64,7 @@ def upload_file():
             filepath = os.path.join(app.config['UPLOAD_FOLDER'],filename)
             file.save(filepath)
             script.append(filepath)
-            setCover('abkTalkNote.txt')
+            setCover('0530.txt')
             
             return redirect(url_for('select_options',user=user))
             #return render_template('requestAudio.html')

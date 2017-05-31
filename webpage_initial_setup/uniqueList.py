@@ -144,7 +144,7 @@ def setCover(file):
 				counter += 1
 
 		rate = float(counter)/float(total)
-		if rate < 0.75:
+		if rate < 0.90:
 			print rate
 			scripts.write("Sentence ( " + str(scCount) + " )\n")
 			scCount += 1
@@ -163,8 +163,9 @@ def setCover(file):
 			if writeUniqueList == 0:
 				for k, v in listUnique.iteritems():
 					print '%s' % (k)
+					print listUnique
 					scripts.write('%s' % (k))
-					scripts.write('\n')
+					scripts.write(' ')
 				writeUniqueList = 1
 
 		sentenceNumArray.append(timesOfReduce)
@@ -174,11 +175,6 @@ def setCover(file):
 	scripts.close()
 	scriptsUnder.close()
 
-	# plt.plot(sentenceNumArray, coverageArray)
-	# plt.axis([0,countResult,0,100])
-	# plt.xlabel('Number of Sentences')
-	# plt.ylabel('Words Covered Rate (%)')
-	# plt.show()
 	return 
 
 
@@ -194,7 +190,7 @@ def setCover(file):
 
 
 #unique = uniqueList('abkTalkNote.txt')
-setCover('abkTalkNote.txt')
+setCover('0530.txt')
 
 
 

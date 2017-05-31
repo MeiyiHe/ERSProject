@@ -1,0 +1,7 @@
+Sentence ( 1 )
+Second, we displace eight moves to size the three types of buffer.
+
+Sentence ( 2 )
+Recall that we perform iterative local moves to minimize skew variation.
+
+and in use directions target first 
