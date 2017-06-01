@@ -36,9 +36,9 @@ def uniqueList(file):
 	for element in unique:
 		uniqueWords[element] += 1
 	#print uniqueWords
-	print "Original File have (words count): ", num
-	print "Current Words Count: ", len(words)
-	print "Current Unique Words Count: ", len(uniqueWords)
+	# print "Original File have (words count): ", num
+	# print "Current Words Count: ", len(words)
+	# print "Current Unique Words Count: ", len(uniqueWords)
 	
 	return uniqueWords
 
@@ -96,8 +96,8 @@ def setCover(file):
 
 	# get the unique word list
 	listUnique = uniqueList(file)
-	print listUnique
-	print "in setcover method(): length of listUnique: ", len(listUnique)
+	#print listUnique
+	#print "in setcover method(): length of listUnique: ", len(listUnique)
 	total = len(listUnique)
 	
 	#find a sentence that contains most less frequncy words from listWithLine
@@ -112,7 +112,7 @@ def setCover(file):
 	scCount = 1
 	writeUniqueList = 0
 	scripts = open('scriptsRequest.txt','w')
-	scriptsUnder = open('scriptsUnder.txt','w')
+	scriptsSystem = open('scriptsSystem.txt','w')
 	#dest = open('coveringSentence.txt','w')
 
 	#count
@@ -145,14 +145,14 @@ def setCover(file):
 
 		rate = float(counter)/float(total)
 		if rate <= 0.75:
-			print rate
+			#print rate
 			scripts.write("Sentence ( " + str(scCount) + " )\n")
 			scCount += 1
 			print(linecache.getline('userScripts.txt', line+1) +"\n")
 			#print listUnique
 			#print listTemp
 			scripts.write(linecache.getline('userScripts.txt', line+1) +"\n")
-			scriptsUnder.write(linecache.getline('lowerScript.txt', line+1) +"\n")
+			scriptsSystem.write(linecache.getline('lowerScript.txt', line+1) +"\n")
 			for k, v in listWithLine.pop(line).items():
 				if k in listUnique.keys():
 					listUnique.pop(k)
@@ -161,10 +161,10 @@ def setCover(file):
 			listTemp.clear()
 			#print listUnique
 
-		print "after checking rate : ", rate
+		#print "after checking rate : ", rate
 
 		if count > len(listUnique):
-			print "count: " + str(count) + " length of listUnique: " + str(len(listWithLine))
+			#print "count: " + str(count) + " length of listUnique: " + str(len(listWithLine))
 			count = len(listUnique)
 			timesOfReduce += 1
 
@@ -174,11 +174,11 @@ def setCover(file):
 		#if len(listUnique) != 0 and len(listTemp) == 0:
 			if writeUniqueList == 0:
 				for k, v in listUnique.iteritems():
-					print '%s' % (k)
+					#print '%s' % (k)
 					scripts.write('%s' % (k))
-					scriptsUnder.write('%s' % (k))
+					scriptsSystem.write('%s' % (k))
 					scripts.write(' ')
-					scriptsUnder.write(' ')
+					scriptsSystem.write(' ')
 				listUnique.clear()
 				
 
@@ -194,7 +194,7 @@ def setCover(file):
 
 
 	scripts.close()
-	scriptsUnder.close()
+	scriptsSystem.close()
 
 
 	return 
