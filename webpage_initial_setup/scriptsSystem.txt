@@ -1,0 +1,5 @@
+recall that we perform iterative local moves to minimize skew variation.
+
+first, we displace the target buffer in eight directions and size the buffer.
+
+use three types of 

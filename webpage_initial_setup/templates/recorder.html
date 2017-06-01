@@ -59,8 +59,11 @@
 		<textarea class="script_field" type="text" id="field" disabled="disabled" > </textarea><br><br>
 	<button onclick="myFunction()">Show Next Script</button>
 	
+	<br><br>
+<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
+	<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
 	</div>
-	
+</form>
 <!--
 	<div class="w3-light-grey">
   		<div class="w3-container w3-green w3-center" style="width:25%">percent</div>
@@ -95,6 +98,24 @@
     		//document.getElementById("field").attr('size', $document.getElementById("field").val().length);
     		
     	}
+/*   	
+    	var sourceFolder = new Folder("/Users/Siya/Downloads/");  
+		var destFolder = new Folder("/Users/Siya/Documents/audio_uploaded/");  
+		var fileList = sourceFolder.getFiles();  
+		for (var j = 0; j < fileList.length; j++) { 
+			console.log(fileList[j]);
+			if (fileList[j].displayName == "MyRecording.wav"){
+				if (fileList[j].copy(decodeURI(destFolder) + "/" + fileList[j].displayName)) {  
+				    fileList[j].remove();  
+				} 
+			}   
+		}  */
+    	/*
+    	var fs = require('fs');
+    	newFile = fs.createWriteStream('/Users/Siya/Documents/audio_uploaded/sentence' + i + '.wav');     
+		oldFile = fs.createReadStream('/Users/Siya/Downloads/MyRecording.wav');
+
+		oldFile.pipe(newFile);*/
     	
 	}
 	</script>

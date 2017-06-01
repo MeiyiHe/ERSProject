@@ -8,8 +8,7 @@ import re
 import time
 from collections import defaultdict
 import linecache
-import matplotlib.pyplot as plt
-import seaborn as sns
+#import matplotlib.pyplot as plt
 
 
 
@@ -146,7 +145,7 @@ def setCover(file):
 		rate = float(counter)/float(total)
 		if rate <= 0.75:
 			#print rate
-			scripts.write("Sentence ( " + str(scCount) + " )\n")
+			scripts.write("SENTENCE ( " + str(scCount) + " ): \n")
 			scCount += 1
 			print(linecache.getline('userScripts.txt', line+1) +"\n")
 			#print listUnique
@@ -173,12 +172,39 @@ def setCover(file):
 			#print "in > 0.85"
 		#if len(listUnique) != 0 and len(listTemp) == 0:
 			if writeUniqueList == 0:
+				tmp = []
+				print listUnique
+				for k,v in listUnique.iteritems():
+					tmp.append(str(k))
+				ten_words = []
+				total = []
+				for i in range(len(tmp)):
+					if len(ten_words) < 10:
+						ten_words.append(tmp[i])
+					else:
+						total.append(ten_words)
+						ten_words = []
+				total.append(ten_words)
+
+				for i in range(len(total)):
+					scripts.write("WORD LIST ( " + str(i+1) + " ): \n")
+					for j in range(len(total[i])):
+						scripts.write(total[i][j])
+						scriptsSystem.write(total[i][j])
+						scripts.write(' ')
+						scriptsSystem.write(' ')
+					scripts.write('.\n')
+
+
+				"""
 				for k, v in listUnique.iteritems():
 					#print '%s' % (k)
 					scripts.write('%s' % (k))
 					scriptsSystem.write('%s' % (k))
 					scripts.write(' ')
 					scriptsSystem.write(' ')
+				scripts.write('.')
+				"""
 				listUnique.clear()
 				
 
