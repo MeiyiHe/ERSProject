@@ -14,8 +14,18 @@ audio = []
 text = []
 processed_script = []
 loginChecking = defaultdict()
-loginChecking['meiyi'] = 'mehe@ucsd.edu'
+#loginChecking['meiyi'] = 'mehe@ucsd.edu'
+with open('/Users/meiyihe/Desktop/testUploadFile/userInfo.txt', 'r') as file:
+    print "read infile "    
+    for line in file:
+        line = line.strip('\n').split()
+        print line
+        print line[0]
+        print line[1]
+        loginChecking[line[0]] = line[1]
 
+print loginChecking
+userInfo = open('newUser.txt','w+')
 @app.route('/')
 def index():
     return redirect(url_for('hello'))
@@ -25,6 +35,7 @@ def hello():
     global loginChecking
     print loginChecking
     global greetings
+    global userInfo
     if request.method == 'POST':
         #print "requesting name and email"
         global email
@@ -43,11 +54,25 @@ def hello():
         else:
             #global greetings
             greetings = "hello, first time user"
-            
+
+            userInfo = open('newUser.txt','w+')
+            userInfo.write(user)
+            userInfo.write('\t')
+            userInfo.write(email)
+            userInfo.write('\n')
+            userInfo.close()
             loginChecking[user] = email
             print loginChecking
+            with open('userInfo.txt','a+') as outfile:
+                print "appneding file"
+                with open('newUser.txt','r') as infile:
+                    for line in infile:
+                        print line
+                        outfile.write(line)
+
 
         print greetings
+
         return redirect(url_for('upload_file', user=user))
     return render_template('hello.html')
 

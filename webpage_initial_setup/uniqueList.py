@@ -114,7 +114,11 @@ def setCover(file):
 	scripts = open('scriptsRequest.txt','w')
 	scriptsUnder = open('scriptsUnder.txt','w')
 	#dest = open('coveringSentence.txt','w')
+
+	#count
+
 	while bool(listUnique):
+		
 		c = 0
 		if bool(listTemp):
 			frqCount = 0
@@ -135,38 +139,55 @@ def setCover(file):
 
 		for key, val in temp.items():
 			listTemp[key] = val
-		print('\n=========getline=============\n')
 
 		prev = counter
-		for k, v in listWithLine.pop(line).items():
-			if k in listUnique.keys():
-				listUnique.pop(k)
-				counter += 1
+
 
 		rate = float(counter)/float(total)
-		if rate < 0.90:
+		if rate <= 0.75:
 			print rate
 			scripts.write("Sentence ( " + str(scCount) + " )\n")
 			scCount += 1
+			print(linecache.getline('userScripts.txt', line+1) +"\n")
+			#print listUnique
+			#print listTemp
 			scripts.write(linecache.getline('userScripts.txt', line+1) +"\n")
 			scriptsUnder.write(linecache.getline('lowerScript.txt', line+1) +"\n")
+			for k, v in listWithLine.pop(line).items():
+				if k in listUnique.keys():
+					listUnique.pop(k)
+					counter += 1
 
-		line = 0
-		frqCount = 0
-		listTemp.clear()
+			listTemp.clear()
+			#print listUnique
+
+		print "after checking rate : ", rate
+
 		if count > len(listUnique):
 			print "count: " + str(count) + " length of listUnique: " + str(len(listWithLine))
 			count = len(listUnique)
 			timesOfReduce += 1
 
-		if rate >= 0.75:
+
+		if rate > 0.75 and rate < 1:
+			#print "in > 0.85"
+		#if len(listUnique) != 0 and len(listTemp) == 0:
 			if writeUniqueList == 0:
 				for k, v in listUnique.iteritems():
 					print '%s' % (k)
-					print listUnique
 					scripts.write('%s' % (k))
+					scriptsUnder.write('%s' % (k))
 					scripts.write(' ')
-				writeUniqueList = 1
+					scriptsUnder.write(' ')
+				listUnique.clear()
+				
+
+			writeUniqueList = 1
+							
+
+		line = 0
+		frqCount = 0
+
 
 		sentenceNumArray.append(timesOfReduce)
 		coverageArray.append(rate*100)
@@ -175,22 +196,16 @@ def setCover(file):
 	scripts.close()
 	scriptsUnder.close()
 
+
 	return 
 
 
 
 
 
-
-
-
-
-
-
-
-
 #unique = uniqueList('abkTalkNote.txt')
-setCover('0530.txt')
+#setCover('0530-note/7sen.txt')
+
 
 
 
