@@ -1,21 +1,23 @@
 <!doctype html>
-<head>
-	<style type="text/css">
-		body {
-    		text-align: center; /* IE */
-		}
+<html>
+	<head>
+		<style type="text/css">
+			body {
+	    		text-align: center; /* IE */
+			}
 
-	</style>
-</head>
+		</style>
+	</head>
 
-<title>Upload Text File</title>
-<h2> {{ greetings}} : {{ user }} </h1>
-<!-- <h3> {{ user }}. </h3> -->
+	<title>Upload Text File</title>
+	<h2> {{ greetings}} : {{ user }} </h1>
 
-<h1>Upload Text File</h1>
-<form action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
-    <p>
-    <input type='file' name='file' multiple=''>
-    <input type='submit' value='upload'>
-    </p>
-</form>
+	<h1>Upload Text File</h1>
+	<form action="{{url_for('upload_file')}}" method="POST" enctype="multipart/form-data">
+	    <p>
+	    <input type='file' name='file' multiple=''>
+	    <input type='submit' value='upload'>
+	    </p>
+	</form>
+	
+</html>

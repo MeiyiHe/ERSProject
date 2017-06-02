@@ -10,14 +10,13 @@
 			}
 
 			#myBar {
-				
 			   	background-color: orange;
 			   	width: 0%; /* Adjust with JavaScript */
 			   	height: 20px;
 			   	border-radius: 10px;
 			}
 			body {
-    			text-align: center; /* IE */
+    			text-align: center;
 			}
 
  		</style>
@@ -28,120 +27,121 @@
  		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
  		
  	</head>
+ 	
  	<body>
  	
-
-    <h1>Voice Recorder</h1>
+    	<h1>Voice Recorder</h1>
     
-    <h2>Please Record and Download</h2>
+   		<h2>Please Record and Download</h2>
 
 		<audio controls id="audio"></audio>
-	<div>
-    <div>
-      <a class="button recordButton" id="record">Record</a>
-      <a class="button disabled one" id="pause">Pause</a>
-      <a class="button disabled one" id="stop">Reset</a>
-    </div><br/>
+		<div>
+    		<div>
+		      <a class="button recordButton" id="record">Record</a>
+		      <a class="button disabled one" id="pause">Pause</a>
+		      <a class="button disabled one" id="stop">Reset</a>
+    		</div>
+    		<br/>
 
-		<div data-type="wav">
-			<p>WAV Controls:</p>
-			<a class="button disabled one" id="play">Play</a> 
-			<a class="button disabled one" id="download">Download</a>
-			<a class="button disabled one" id="save">Upload to Server</a>
+			<div data-type="wav">
+				<p>WAV Controls:</p>
+				<a class="button disabled one" id="play">Play</a> 
+				<a class="button disabled one" id="download">Download</a>
+				<a class="button disabled one" id="save">Upload to Server</a>
+
+			</div>
 
 		</div>
 
-	</div>
-
 	
-	<div><br><br>
-		Script: <br>
-		<textarea class="script_field" type="text" id="field" disabled="disabled" > </textarea><br><br>
-	<button onclick="myFunction()">Show Next Script</button>
-	
-	<br><br>
+		<div>
+			<br><br>
+			Script: 
+			<br>
+			<textarea class="script_field" type="text" id="field" disabled="disabled" > 
+			</textarea>
+			<br><br>
+			<button onclick="myFunction()">Show Next Script</button>
+			<br><br>
 
-	<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
-		<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
+			<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
+			<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
+			</form>
 		</div>
-	</form>
 
-	<br>
-	<div id="progressbar">
-	  	<div id="myBar"></div>
-	</div>
-	<br>
-	
-	<script>
-
-	i = 0
-	rate = 0
-	var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
-	function myFunction() {
+		<br>
 		
-		if(i < result.length) {
+		<div id="progressbar">
+		  	<div id="myBar"></div>
+		</div>
+		<br>
 
-			document.getElementById("field").value = result[i]
-    		i++;
-    		rate = (i/result.length).toFixed(2)
-    		rate = rate*100
-    		newRate = rate + "%"
-    		//window.alert(newRate)
-    		document.getElementById('myBar').style.width = newRate
-    		
-    		//window.alert(rate)
-    	}
-    	else {
-    		var text = "REACH THE END OF YOUR SCRIPT "
-    		
-    		document.getElementById('field').value = text;
+		<script>
+		i = 0
+		rate = 0
+		var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
+		function myFunction() {
+			
+			if(i < result.length) {
 
-    		
-    	}
-    	
-	}
-	</script>
+				document.getElementById("field").value = result[i]
+	    		i++;
+	    		rate = (i/result.length).toFixed(2)
+	    		rate = rate*100
+	    		newRate = rate + "%"
+	    		
+	    		document.getElementById('myBar').style.width = newRate
+	    		
+	    	}
+	    	else {
+	    		var text = "REACH THE END OF YOUR SCRIPT "
+	    		
+	    		document.getElementById('field').value = text;
+	    	}
+	    	
+		}
+		</script>
 	
-    <canvas id="level" height="200" width="500"></canvas>
+    	<canvas id="level" height="200" width="500"></canvas>
 		<style>
-		.button{
-			display: inline-block;
-			vertical-align: middle;
-			margin: 0px 5px;
-			padding: 5px 12px;
-			cursor: pointer;
-			outline: none;
-			font-size: 13px;
-			text-decoration: none !important;
-			text-align: center;
-			color:#fff;
-			background-color: #4D90FE;
-			background-image: linear-gradient(top,#4D90FE, #4787ED);
-			background-image: -ms-linear-gradient(top,#4D90FE, #4787ED);
-			background-image: -o-linear-gradient(top,#4D90FE, #4787ED);
-			background-image: linear-gradient(top,#4D90FE, #4787ED);
-			border: 1px solid #4787ED;
-			box-shadow: 0 1px 3px #BFBFBF;
-		}
-		a.button{
-			color: #fff;
-		}
-		.button:hover{
-			box-shadow: inset 0px 1px 1px #8C8C8C;
-		}
-		.button.disabled{
-			box-shadow:none;
-			opacity:0.7;
-		}
-		.script_field{
-			width: 400px; 
-			height: 400px;
-		}
+			.button{
+				display: inline-block;
+				vertical-align: middle;
+				margin: 0px 5px;
+				padding: 5px 12px;
+				cursor: pointer;
+				outline: none;
+				font-size: 13px;
+				text-decoration: none !important;
+				text-align: center;
+				color:#fff;
+				background-color: #4D90FE;
+				background-image: linear-gradient(top,#4D90FE, #4787ED);
+				background-image: -ms-linear-gradient(top,#4D90FE, #4787ED);
+				background-image: -o-linear-gradient(top,#4D90FE, #4787ED);
+				background-image: linear-gradient(top,#4D90FE, #4787ED);
+				border: 1px solid #4787ED;
+				box-shadow: 0 1px 3px #BFBFBF;
+			}
+			a.button{
+				color: #fff;
+			}
+			.button:hover{
+				box-shadow: inset 0px 1px 1px #8C8C8C;
+			}
+			.button.disabled{
+				box-shadow:none;
+				opacity:0.7;
+			}
+			.script_field{
+				width: 400px; 
+				height: 400px;
+			}
 
-}
-    canvas{
-      display: block;
-    }
+			}
+		    canvas{
+		      display: block;
+		    }
 		</style>
  	</body>
 </html>

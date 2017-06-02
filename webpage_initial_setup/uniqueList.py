@@ -8,7 +8,6 @@ import re
 import time
 from collections import defaultdict
 import linecache
-#import matplotlib.pyplot as plt
 
 
 
@@ -34,14 +33,15 @@ def uniqueList(file):
 	uniqueWords = defaultdict(int)
 	for element in unique:
 		uniqueWords[element] += 1
-	#print uniqueWords
-	# print "Original File have (words count): ", num
-	# print "Current Words Count: ", len(words)
-	# print "Current Unique Words Count: ", len(uniqueWords)
+
 	
 	return uniqueWords
 
-def setCover(file):
+def setCover(file, dirname):
+	#directory = os.path.dirname(name)
+	if not os.path.exists(dirname):
+		os.makedirs(dirname)
+
 	sentenceNumArray = []
 	coverageArray = []
 	listWithFrq = defaultdict(int)
@@ -110,9 +110,15 @@ def setCover(file):
 	counter = 0
 	scCount = 1
 	writeUniqueList = 0
-	scripts = open('scriptsRequest.txt','w')
-	scriptsSystem = open('scriptsSystem.txt','w')
-	#dest = open('coveringSentence.txt','w')
+
+	userPath = dirname + '/scriptsRequest.txt'
+	print userPath
+	scripts = open( userPath ,'w')
+	#scripts = open('scriptsRequest.txt','w')
+	systemPath = dirname + '/scriptsSystem.txt'
+	print systemPath
+	scriptsSystem = open( systemPath ,'w')
+	#scriptsSystem = open('scriptsSystem.txt','w')
 
 	#count
 
@@ -147,7 +153,7 @@ def setCover(file):
 			#print rate
 			scripts.write("SENTENCE ( " + str(scCount) + " ): \n")
 			scCount += 1
-			print(linecache.getline('userScripts.txt', line+1) +"\n")
+			#print(linecache.getline('userScripts.txt', line+1) +"\n")
 			#print listUnique
 			#print listTemp
 			scripts.write(linecache.getline('userScripts.txt', line+1) +"\n")
@@ -173,7 +179,7 @@ def setCover(file):
 		#if len(listUnique) != 0 and len(listTemp) == 0:
 			if writeUniqueList == 0:
 				tmp = []
-				print listUnique
+				#print listUnique
 				for k,v in listUnique.iteritems():
 					tmp.append(str(k))
 				ten_words = []
@@ -182,7 +188,7 @@ def setCover(file):
 					if len(ten_words) < 10:
 						ten_words.append(tmp[i])
 					else:		
-						print "empty"				
+						#print "empty"				
 						total.append(ten_words)
 						ten_words = []
 				if len(ten_words) != 0:
@@ -198,15 +204,6 @@ def setCover(file):
 					scripts.write('.\n')
 
 
-				"""
-				for k, v in listUnique.iteritems():
-					#print '%s' % (k)
-					scripts.write('%s' % (k))
-					scriptsSystem.write('%s' % (k))
-					scripts.write(' ')
-					scriptsSystem.write(' ')
-				scripts.write('.')
-				"""
 				listUnique.clear()
 				
 
@@ -216,7 +213,7 @@ def setCover(file):
 		line = 0
 		frqCount = 0
 
-		print total
+		#print total
 		sentenceNumArray.append(timesOfReduce)
 		coverageArray.append(rate*100)
 
@@ -229,11 +226,9 @@ def setCover(file):
 
 
 
-
-
 #unique = uniqueList('abkTalkNote.txt')
 #setCover('0530-note/7sen.txt')
-#setCover('/Users/meiyihe/Desktop/testUploadFile/scriptsRequest.txt')
+#setCover('/Users/meiyihe/Desktop/testUploadFile/0530-note/5sen.txt', 'meiyiFolder')
 
 
 
