@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html>
  	<head>
- 		<style>
+ 		<style type="text/css">
 	 		#progressbar {
-			  background-color: grey;
-			  width:50%;
-			  border-radius: 10px;
+	 			margin: auto;
+			  	background-color: grey;
+			  	width:50%;
+			  	border-radius: 10px;
 			}
 
 			#myBar {
-			   background-color: orange;
-			   width: 0%; /* Adjust with JavaScript */
-			   height: 20px;
-			   border-radius: 10px;
+				
+			   	background-color: orange;
+			   	width: 0%; /* Adjust with JavaScript */
+			   	height: 20px;
+			   	border-radius: 10px;
 			}
+			body {
+    			text-align: center; /* IE */
+			}
+
  		</style>
 
  		<script type="text/javascript" src="{{ url_for('static', filename='src/recorder.js') }}"></script>
@@ -27,7 +33,8 @@
 
     <h1>Voice Recorder</h1>
     
-    <h2>Record</h2>
+    <h2>Please Record and Download</h2>
+
 		<audio controls id="audio"></audio>
 	<div>
     <div>
@@ -85,7 +92,7 @@
     		//window.alert(rate)
     	}
     	else {
-    		var text = "REACH END OF YOUR SCRIPT "
+    		var text = "REACH THE END OF YOUR SCRIPT "
     		
     		document.getElementById('field').value = text;
 
