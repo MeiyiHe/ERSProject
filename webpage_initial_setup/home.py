@@ -12,13 +12,13 @@ import final_analyze_textgridDIR
 app = Flask(__name__)
 
 ALLOWED_EXTENSIONS = 'txt'
-UPLOAD_FOLDER = '/Users/Siya/Documents/uploads/'
+UPLOAD_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
-AUDIO_FOLDER = '/Users/Siya/Downloads/'
+AUDIO_FOLDER = '/Users/meiyihe/Downloads'
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-DEST_FOLDER = '/Users/Siya/Documents/audio_uploaded'
+DEST_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
 app.config['DEST_FOLDER'] = DEST_FOLDER
-ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
+ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
 
 

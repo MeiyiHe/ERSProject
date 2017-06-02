@@ -1,58 +1,51 @@
 <!DOCTYPE html>
 <html>
  	<head>
+ 		<style>
+	 		#progressbar {
+			  background-color: grey;
+			  width:50%;
+			  border-radius: 10px;
+			}
+
+			#myBar {
+			   background-color: orange;
+			   width: 0%; /* Adjust with JavaScript */
+			   height: 20px;
+			   border-radius: 10px;
+			}
+ 		</style>
+
  		<script type="text/javascript" src="{{ url_for('static', filename='src/recorder.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='src/Fr.voice.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
- 	<!--	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
  		
  	</head>
  	<body>
  	
 
     <h1>Voice Recorder</h1>
-<!--    <p>Created By Subin Siby</a> & Open Source community</p> -->
     
     <h2>Record</h2>
 		<audio controls id="audio"></audio>
 	<div>
     <div>
       <a class="button recordButton" id="record">Record</a>
-   <!--   <a class="button recordButton" id="recordFor5">Record For 5 Seconds</a>-->
       <a class="button disabled one" id="pause">Pause</a>
       <a class="button disabled one" id="stop">Reset</a>
     </div><br/>
- <!--   
-    <div>
-      <input class="button" type="checkbox" id="live"/>
-      <label for="live">Live Output</label>
-    </div> -->
+
 		<div data-type="wav">
 			<p>WAV Controls:</p>
 			<a class="button disabled one" id="play">Play</a> 
 			<a class="button disabled one" id="download">Download</a>
 			<a class="button disabled one" id="save">Upload to Server</a>
-<!--      <a class="button disabled one" id="base64">Base64 URL</a>
-      <a class="button disabled one" id="save">Upload to Server</a> -->
+
 		</div>
 
 	</div>
-<!--    <div data-type="mp3">
-      <p>MP3 Controls:</p>
-      <a class="button disabled one" id="play">Play</a>
-      <a class="button disabled one" id="download">Download</a>
-      <a class="button disabled one" id="base64">Base64 URL</a>
-      <a class="button disabled one" id="save">Upload to Server</a>
-    </div>-->
 
-<!--
-    <div id="output_script">
-    </div>
-    <div>
-    	<span id="next_button">Next!</span>
-    </div>
--->
 	
 	<div><br><br>
 		Script: <br>
@@ -60,62 +53,44 @@
 	<button onclick="myFunction()">Show Next Script</button>
 	
 	<br><br>
-<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
-	<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
+
+	<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
+		<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
+		</div>
+	</form>
+
+	<br>
+	<div id="progressbar">
+	  	<div id="myBar"></div>
 	</div>
-</form>
-<!--
-	<div class="w3-light-grey">
-  		<div class="w3-container w3-green w3-center" style="width:25%">percent</div>
-	</div><br>
+	<br>
 	
--->
-	<br><br>
-	
-<!--	<base href="/Users/Siya/Downloads/webpage_initial_setup/templates/"/> -->
 	<script>
 
-	i=0
+	i = 0
+	rate = 0
 	var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
-	//var percent = 0.toFixed(2)
-	//console.log(result.length)
-	
 	function myFunction() {
-		//if(i<2){
+		
 		if(i < result.length) {
 
 			document.getElementById("field").value = result[i]
-			//percent = i.toFixed(2)/result.length.toFixed(2)
-			//percent = float(i)/ float(result.length)
-    		//document.getElementById("field").value = script_list;
-    		
     		i++;
+    		rate = (i/result.length).toFixed(2)
+    		rate = rate*100
+    		newRate = rate + "%"
+    		//window.alert(newRate)
+    		document.getElementById('myBar').style.width = newRate
+    		
+    		//window.alert(rate)
     	}
     	else {
     		var text = "REACH END OF YOUR SCRIPT "
-    		//percent = 1.0
+    		
     		document.getElementById('field').value = text;
-    		//document.getElementById("field").attr('size', $document.getElementById("field").val().length);
+
     		
     	}
-/*   	
-    	var sourceFolder = new Folder("/Users/Siya/Downloads/");  
-		var destFolder = new Folder("/Users/Siya/Documents/audio_uploaded/");  
-		var fileList = sourceFolder.getFiles();  
-		for (var j = 0; j < fileList.length; j++) { 
-			console.log(fileList[j]);
-			if (fileList[j].displayName == "MyRecording.wav"){
-				if (fileList[j].copy(decodeURI(destFolder) + "/" + fileList[j].displayName)) {  
-				    fileList[j].remove();  
-				} 
-			}   
-		}  */
-    	/*
-    	var fs = require('fs');
-    	newFile = fs.createWriteStream('/Users/Siya/Documents/audio_uploaded/sentence' + i + '.wav');     
-		oldFile = fs.createReadStream('/Users/Siya/Downloads/MyRecording.wav');
-
-		oldFile.pipe(newFile);*/
     	
 	}
 	</script>
@@ -152,8 +127,8 @@
 			opacity:0.7;
 		}
 		.script_field{
-			width: 300px; 
-			height: 300px;
+			width: 400px; 
+			height: 400px;
 		}
 
 }
