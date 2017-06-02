@@ -1,13 +1,35 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {
+    		text-align: center; /* IE */
+		}
 
-<title>Select your options</title>
-<h3>Hi, {{ user }}. <h3>
+		#main {
+		    /*margin-left: auto;*/
+		    margin: auto;
+		    text-align: left;   /* IE */
+		    width: 100%;         /* Fill this out. */
+		}
 
-<form action="{{url_for('select_options')}}" method="POST" enctype="multipart/form-data">
-	
-	Get the audio synthesized from your library<br>
-	<input type="submit" name="button1" value='synthesize' style="height:500px; width: 200px"><br><br>
-	Train your library<br>
-	<input type='submit' name='button1' value='add_lib' style="height:500px; width: 200px">
-	
-</form>
+		form{
+			text-align: center; /* IE */
+			display: inline-block;
+		}
+	</style>
+	<title> Select your options </title>
+	<h2>Hi, {{ user }}! <h2>
+</head>
+
+<body>
+	<form action="{{url_for('select_options')}}" method="POST" enctype="multipart/form-data">
+		
+		Get the audio synthesized from your library<br>
+		<input type="submit" name="button1" value='synthesize' style="height:500px; width: 200px"><br><br>
+		Train your library<br>
+		<input type='submit' name='button1' value='add_lib' style="height:500px; width: 200px">
+		
+	</form>
+</body>
+</html>

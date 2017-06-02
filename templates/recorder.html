@@ -1,82 +1,118 @@
 <!DOCTYPE html>
 <html>
  	<head>
+ 		<style type="text/css">
+	 		#progressbar {
+	 			margin: auto;
+			  	background-color: grey;
+			  	width:50%;
+			  	border-radius: 10px;
+			}
+
+			#myBar {
+				
+			   	background-color: orange;
+			   	width: 0%; /* Adjust with JavaScript */
+			   	height: 20px;
+			   	border-radius: 10px;
+			}
+			body {
+    			text-align: center; /* IE */
+			}
+
+			#main {
+			    /*margin-left: auto;*/
+			    margin: auto;
+			    text-align: left;   /* IE */
+			    width: 100%;         /* Fill this out. */
+			}
+
+			form{
+				text-align: center; /* IE */
+				display: inline-block;
+			}
+ 		</style>
+
  		<script type="text/javascript" src="{{ url_for('static', filename='src/recorder.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='src/Fr.voice.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
  		<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
-
+ 		
  	</head>
  	<body>
+ 	
+
     <h1>Voice Recorder</h1>
-<!--    <p>Created By Subin Siby</a> & Open Source community</p> -->
     
-    <h2>Record</h2>
+    <h2>Please Record and Download</h2>
+
 		<audio controls id="audio"></audio>
+	<div>
     <div>
       <a class="button recordButton" id="record">Record</a>
-   <!--   <a class="button recordButton" id="recordFor5">Record For 5 Seconds</a>-->
       <a class="button disabled one" id="pause">Pause</a>
       <a class="button disabled one" id="stop">Reset</a>
     </div><br/>
- <!--   
-    <div>
-      <input class="button" type="checkbox" id="live"/>
-      <label for="live">Live Output</label>
-    </div> -->
+
 		<div data-type="wav">
 			<p>WAV Controls:</p>
 			<a class="button disabled one" id="play">Play</a> 
 			<a class="button disabled one" id="download">Download</a>
 			<a class="button disabled one" id="save">Upload to Server</a>
-<!--      <a class="button disabled one" id="base64">Base64 URL</a>
-      <a class="button disabled one" id="save">Upload to Server</a> -->
+
 		</div>
-<!--    <div data-type="mp3">
-      <p>MP3 Controls:</p>
-      <a class="button disabled one" id="play">Play</a>
-      <a class="button disabled one" id="download">Download</a>
-      <a class="button disabled one" id="base64">Base64 URL</a>
-      <a class="button disabled one" id="save">Upload to Server</a>
-    </div>-->
 
+	</div>
 
+	
 	<div><br><br>
 		Script: <br>
 		<textarea class="script_field" type="text" id="field" disabled="disabled" > </textarea><br><br>
-	<button onclick="myFunction()" id="next_button">Show Next Script</button>
+	<button onclick="myFunction()">Show Next Script</button>
 	
-	</div>
 	<br><br>
+
+	<form action="{{url_for('recorder')}}" method="POST" enctype="multipart/form-data">
+		<input type='submit' name='sub_button' value='collect' style="height:500px; width: 200px">
+		</div>
+	</form>
+
+	<br>
+	<div id="progressbar">
+	  	<div id="myBar"></div>
+	</div>
+	<br>
+	
 	<script>
 
-	i=0
+	i = 0
+	rate = 0
 	var result = "{{sentence_list}}".match( /[^\.!\?]+[\.!\?]+/g );
-	//var percent = 0.toFixed(2)
-	//console.log(result.length)
-	
 	function myFunction() {
-		//if(i<2){
+		
 		if(i < result.length) {
 
 			document.getElementById("field").value = result[i]
-			//percent = i.toFixed(2)/result.length.toFixed(2)
-			//percent = float(i)/ float(result.length)
-    		//document.getElementById("field").value = script_list;
     		i++;
+    		rate = (i/result.length).toFixed(2)
+    		rate = rate*100
+    		newRate = rate + "%"
+    		//window.alert(newRate)
+    		document.getElementById('myBar').style.width = newRate
+    		
+    		//window.alert(rate)
     	}
     	else {
     		var text = "REACH END OF YOUR SCRIPT "
-    		//percent = 1.0
+    		
     		document.getElementById('field').value = text;
-    		//document.getElementById("field").attr('size', $document.getElementById("field").val().length);
+
     		
     	}
-    	//document.getElementById('next_button').disabled=true;
     	
 	}
 	</script>
-
+	
     <canvas id="level" height="200" width="500"></canvas>
 		<style>
 		.button{
@@ -109,9 +145,11 @@
 			opacity:0.7;
 		}
 		.script_field{
-			width: 300px; 
-			height: 300px;
+			width: 400px; 
+			height: 400px;
 		}
+
+}
     canvas{
       display: block;
     }
