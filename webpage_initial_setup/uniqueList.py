@@ -181,10 +181,12 @@ def setCover(file):
 				for i in range(len(tmp)):
 					if len(ten_words) < 10:
 						ten_words.append(tmp[i])
-					else:
+					else:		
+						print "empty"				
 						total.append(ten_words)
 						ten_words = []
-				total.append(ten_words)
+				if len(ten_words) != 0:
+					total.append(ten_words)
 
 				for i in range(len(total)):
 					scripts.write("WORD LIST ( " + str(i+1) + " ): \n")
@@ -214,7 +216,7 @@ def setCover(file):
 		line = 0
 		frqCount = 0
 
-
+		print total
 		sentenceNumArray.append(timesOfReduce)
 		coverageArray.append(rate*100)
 
@@ -231,8 +233,7 @@ def setCover(file):
 
 #unique = uniqueList('abkTalkNote.txt')
 #setCover('0530-note/7sen.txt')
-
-
+#setCover('/Users/meiyihe/Desktop/testUploadFile/scriptsRequest.txt')
 
 
 
