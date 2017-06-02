@@ -1,34 +1,47 @@
 <!DOCTYPE html>
 <html>
   <head>
+  <style type="text/css">
+    body {
+        text-align: center; /* IE */
+        
+        width: 100%
+    }
+
+  
+    </style>
+
     <title>ERSP app</title>
-    <h2>Text-To-Speech Synthesizer</h2>
+    <h1>Text-To-Speech Synthesizer</h1>
   </head>
   
   
-  
-  
-  <table>
-  <form action="{{url_for('hello')}}" method="post">
-      <tr>
-        <td align="right">User Name:</td> 
-        <td align="left"><input type="text" name="userName" ></td>
-        <td align="left"></td>
-      <tr>
+  <body>
+    <div align="center">
+    
+    
+      <form action="{{url_for('hello')}}" method="post">
+        <table>
+          <tr>
+            <td align="right">User Name:</td> 
+            <td align="left"><input type="text" name="userName" ></td>
+            <td align="left"></td>
+          <tr>
 
 
-      <tr>
-        <td align="right">Email:</td> 
-        <td align="left"><input type="text" name="email" ></td>
-        <td align="left"></td>
-        
-        <td align="right"><input type="submit" value="Signup"></input></td>
-      <tr>
+          <tr>
+            <td align="right">Email:</td> 
+            <td align="left"><input type="text" name="email" ></td>
+            <td align="left"></td>
+            
+            <td align="right"><input type="submit" value="Signup"></input></td>
+          <tr>
+        </table>  
+      </form>
+    </div>
   
-  </form>
-  </table>
-  <!--a href="{{ url_for('upload_file') }}"><button type="submit">Sign Up</button></a><br-->
-  
+  </body>
+
   
 </html>
 
