@@ -12,28 +12,17 @@ import textProcess,textPreprocess,generateLib,generateLibW,covering
 import final_analyze_textgridDIR
 
 app = Flask(__name__)
-""" MEIYI 
+#MEIYI 
 ALLOWED_EXTENSIONS = 'txt'
 upload_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
 #app.config['upload_FOLDER'] = upload_FOLDER 
 AUDIO_FOLDER = '/Users/meiyihe/Downloads'
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
 dest_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
-#zapp.config['dest_FOLDER'] = dest_FOLDER
+#app.config['dest_FOLDER'] = dest_FOLDER
 ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
-"""
-""" SIYA """
-ALLOWED_EXTENSIONS = 'txt'
-upload_FOLDER = '/Users/Siya/Documents/uploads/'
-#app.config['upload_FOLDER'] = upload_FOLDER 
-AUDIO_FOLDER = '/Users/Siya/Downloads/'
-app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
-#app.config['dest_FOLDER'] = dest_FOLDER
-ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
-app.config['ALIGNER_DIR'] = ALIGNER_DIR
-CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
+CURRENT_DIR = '/Users/meiyihe/Desktop/testUploadFile/'
 
 
 script = []
@@ -48,10 +37,6 @@ loginChecking = defaultdict()
 genlib_filelist = []
 genlibW_fileslist = []
 
-
-
-
-#loginChecking['meiyi'] = 'mehe@ucsd.edu'
 
 with open('userInfo.txt', 'r') as info:
     for line in info:
@@ -106,6 +91,8 @@ def hello():
             call(command.split(),cwd='user_folders/'+ userDir,shell=False)
             command = 'mkdir GL'
             call(command.split(),cwd='user_folders/'+ userDir +'/'+user, shell=False)
+            command = 'cp <pause>.wav {0}'.format('user_folders/' +userDir+'/'+user+'/GL')
+            call(command.split(),shell=False)
 
         dest_FOLDER = CURRENT_DIR + 'user_folders/' + userDir + '/'+user
         app.config['dest_FOLDER'] = dest_FOLDER
@@ -153,6 +140,7 @@ def upload_file():
             #return render_template('requestAudio.html')
     return render_template('file_upload.html', user=user,greetings= greetings)
 
+
 @app.route('/requestAudio', methods=['GET', 'POST'])
 def upload_audio():
     if request.method == 'POST':
@@ -167,8 +155,11 @@ def upload_audio():
 
 @app.route('/selectOptions/', methods=['GET', 'POST'])
 def select_options():
+    global synthe
     if request.method == 'POST':
         if request.form['button1'] == 'add_lib':
+            
+            synthe = False
             if old_user:
                 returnUserUniqueList.returnUserSetCover(script[0], app.config['upload_FOLDER'])
                 #script.append('scriptsSystem.txt')
@@ -188,19 +179,21 @@ def select_options():
                 return render_template('review.html')
             #need more audios 
             else:
+                print "returncover == 0 when press synthesizing ========================"
                 incremental = True
-                #script = []
+                
+                
+                synthe = True
+                
                 #script.append('''file_need_to_record''')
                 returnUserUniqueList.returnUserSetCover(script[0], app.config['upload_FOLDER'])
         return redirect(url_for('recorder', user=user))
             #return render_template('review.html')
     return render_template('selectOptions.html',user=user)
-
     
 
 @app.route('/review', methods=['GET', 'POST'])
 def review():
-
     return redirect(url_for('recorder',user=user))
     #return render_template('review.html',text=txt )
 @app.route('/recorder', methods=['GET', 'POST'])
@@ -227,6 +220,10 @@ def recorder():
             for item in os.listdir(app.config['dest_FOLDER']):
                 if os.path.isfile(os.path.join(app.config['dest_FOLDER'],item)):
                     os.rename(os.path.join(app.config['dest_FOLDER'],item), os.path.join(app.config['upload_FOLDER'],item))
+            
+        
+            filename = script[0]
+            ret_cover = covering.covering('user_folders/' + userDir + '/'+user, filename)
 
             return render_template('review.html')
     
@@ -237,9 +234,7 @@ def recorder():
 
 @app.route('/read_file', methods=['GET'])
 def read_uploaded_file():
-# """    if old_user:
-#         filename = script[0]
-#     else:"""
+
     filename = app.config['upload_FOLDER'] + '/scriptsRequest.txt'
     tmp = []
     print filename
@@ -251,8 +246,6 @@ def read_uploaded_file():
                 for char in f.read():
                     if char != '\n':
                         tmp.append(char)
-                    else:
-                        tmp.append(' ')
                 sentence_list = ''.join(tmp)
                 sentence_list = unicode(sentence_list, 'ascii', 'ignore')
             
@@ -288,8 +281,7 @@ def submit_audio_all():
     with open(filename) as f:
         text = f.read()
     
-    #splitted = re.split('(?<=[.!?]) +', text)
-    #splitted = re.split(r' *[\.\?!][\'"\)\]]* *', text)
+    
     splitted = re.split('(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s',text)
 
     print splitted

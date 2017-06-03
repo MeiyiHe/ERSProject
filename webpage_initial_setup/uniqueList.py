@@ -32,7 +32,7 @@ def uniqueList(file, dirname):
 	
 	for w in words:
 		if w not in unique:
-			print w
+			#print w
 			unique.add(w)
 			initLib.write(w)
 			initLib.write('\n')
@@ -66,7 +66,7 @@ def setCover(file, dirname):
 
 			dest1.write('\n')
 	dest1.close()
-
+	
 	dest2 = open('userScripts.txt','w')
 	with open('scriptsTN.txt') as infile:
 		for line in infile:
@@ -74,7 +74,7 @@ def setCover(file, dirname):
 				dest2.write(line)
 
 	dest2.close()
-	os.remove('scriptsTN.txt')
+	#os.remove('scriptsTN.txt')
 
 	# process talk notes for unique sentence prompting
 	dest3 = open('processLower.txt','w')
@@ -183,16 +183,20 @@ def setCover(file, dirname):
 				#print listUnique
 				for k,v in listUnique.iteritems():
 					tmp.append(str(k))
+					#print k
 				ten_words = []
 				total = []
 				for i in range(len(tmp)):
 					if len(ten_words) <= 10:
 						ten_words.append(tmp[i])
+						print tmp[i]
 					else:		
 						#print "empty"				
 						total.append(ten_words)
+						#print ten_words
 						ten_words = []
 				if len(ten_words) != 0:
+					#print ten_words
 					total.append(ten_words)
 
 				for i in range(len(total)):
@@ -229,7 +233,9 @@ def setCover(file, dirname):
 #unique = uniqueList('abkTalkNote.txt')
 #setCover('0530-note/7sen.txt')
 #setCover('/Users/meiyihe/Desktop/testUploadFile/0530-note/11sen.txt', 'meiyiFolder')
+#setCover('/Users/meiyihe/Desktop/testUploadFile/super.txt','meiyiFolder')
 #uniqueList('/Users/meiyihe/Desktop/testUploadFile/0530-note/11sen.txt','meiyiFolder')
+#setCover('/Users/meiyihe/Desktop/testUploadFile/0530-note/11sen.txt','meiyiFolder')
 
 
 
