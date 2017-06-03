@@ -24,6 +24,18 @@ ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
 CURRENT_DIR = '/Users/meiyihe/Desktop/testUploadFile/'
 
+"""SIYA
+ALLOWED_EXTENSIONS = 'txt'
+upload_FOLDER = '/Users/Siya/Documents/uploads/'
+#app.config['upload_FOLDER'] = upload_FOLDER 
+AUDIO_FOLDER = '/Users/Siya/Downloads/'
+app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
+dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
+#app.config['dest_FOLDER'] = dest_FOLDER
+ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
+app.config['ALIGNER_DIR'] = ALIGNER_DIR
+CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
+"""
 
 script = []
 #align = []
