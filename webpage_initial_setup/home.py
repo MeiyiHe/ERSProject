@@ -227,7 +227,7 @@ def recorder():
             for item in os.listdir(app.config['dest_FOLDER']):
                 if os.path.isfile(os.path.join(app.config['dest_FOLDER'],item)):
                     os.rename(os.path.join(app.config['dest_FOLDER'],item), os.path.join(app.config['upload_FOLDER'],item))
-            
+            outputPath = ''
             if synthe == True:
                 filename = script[0]
                 ret_cover = covering.covering('user_folders/' + userDir + '/'+user, filename)
