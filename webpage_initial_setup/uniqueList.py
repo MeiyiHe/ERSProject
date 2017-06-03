@@ -186,7 +186,7 @@ def setCover(file, dirname):
 				ten_words = []
 				total = []
 				for i in range(len(tmp)):
-					if len(ten_words) < 10:
+					if len(ten_words) <= 10:
 						ten_words.append(tmp[i])
 					else:		
 						#print "empty"				
