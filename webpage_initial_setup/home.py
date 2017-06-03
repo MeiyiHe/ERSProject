@@ -23,19 +23,7 @@ dest_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
 ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
 CURRENT_DIR = '/Users/meiyihe/Desktop/testUploadFile/'
- 
-""" SIYA
-ALLOWED_EXTENSIONS = 'txt'
-upload_FOLDER = '/Users/Siya/Documents/uploads/'
-#app.config['upload_FOLDER'] = upload_FOLDER 
-AUDIO_FOLDER = '/Users/Siya/Downloads/'
-app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
-#app.config['dest_FOLDER'] = dest_FOLDER
-ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
-app.config['ALIGNER_DIR'] = ALIGNER_DIR
-CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
-"""
+
 
 script = []
 #align = []
@@ -168,6 +156,8 @@ def upload_audio():
 @app.route('/selectOptions/', methods=['GET', 'POST'])
 def select_options():
     global synthe
+    global outputPath
+    synthe = False
     if request.method == 'POST':
         if request.form['button1'] == 'add_lib':
             
@@ -188,13 +178,14 @@ def select_options():
             #covering.covering(app.config['upload_FOLDER'],filename)
             if ret_cover == 1:
                 print "SUCCESS, CHECK YOUR USER FOLDER"
-                return render_template('review.html')
+                outputPath = filename[:-4]+'_output.wav'
+                
+                #return send_file(outputPath, mimetype="wav", as_attachment=True, attachment_filename=basename(os.path.splitext(filename)[0])+'_output.wav')
+                return redirect(url_for('review', path=outputPath))
             #need more audios 
             else:
                 print "returncover == 0 when press synthesizing ========================"
                 incremental = True
-                
-                
                 synthe = True
                 
                 #script.append('''file_need_to_record''')
@@ -206,8 +197,12 @@ def select_options():
 
 @app.route('/review', methods=['GET', 'POST'])
 def review():
-    return redirect(url_for('recorder',user=user))
-    #return render_template('review.html',text=txt )
+    if request.method == 'POST':
+        if request.form['output'] == 'output':
+            return send_file(outputPath, mimetype="wav", as_attachment=True, attachment_filename=basename(os.path.splitext(script[0])[0])+'_output.wav')
+    #return redirect(url_for('recorder',user=user))
+    return render_template('review.html')
+    #return redirect(url_for('review', path=outputPath))
 @app.route('/recorder', methods=['GET', 'POST'])
 def recorder():
     if request.method == 'POST':
@@ -233,11 +228,13 @@ def recorder():
                 if os.path.isfile(os.path.join(app.config['dest_FOLDER'],item)):
                     os.rename(os.path.join(app.config['dest_FOLDER'],item), os.path.join(app.config['upload_FOLDER'],item))
             
-        
-            filename = script[0]
-            ret_cover = covering.covering('user_folders/' + userDir + '/'+user, filename)
-
-            return render_template('review.html')
+            if synthe == True:
+                filename = script[0]
+                ret_cover = covering.covering('user_folders/' + userDir + '/'+user, filename)
+                outputPath = filename[:-4]+'_output.wav'
+               # return send_file(outputPath, mimetype="wav", as_attachment=True, attachment_filename=basename(os.path.splitext(filename)[0])+'_output.wav')
+                               
+            return redirect(url_for('review', path=outputPath))
     
     tmp_list = read_uploaded_file()
     
