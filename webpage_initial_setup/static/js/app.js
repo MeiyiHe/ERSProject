@@ -106,7 +106,7 @@ $(document).ready(function(){
         $("#audio")[0].play();
       }, "URL");
     }
-    Fr.voice.stop();
+    Fr.voice.pause();
     //restore();
   });
 
