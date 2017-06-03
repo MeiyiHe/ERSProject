@@ -12,28 +12,29 @@ import textProcess,textPreprocess,generateLib,generateLibW,covering
 import final_analyze_textgridDIR
 
 app = Flask(__name__)
-""" MEIYI 
+#MEIYI 
 ALLOWED_EXTENSIONS = 'txt'
 upload_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
-app.config['upload_FOLDER'] = upload_FOLDER 
+#app.config['upload_FOLDER'] = upload_FOLDER 
 AUDIO_FOLDER = '/Users/meiyihe/Downloads'
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-dest_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
-app.config['dest_FOLDER'] = dest_FOLDER
+dest_FOLDER = '/Users/meiyihe/Desktop/ERSProject/webpage_initial_setup/'
+#app.config['dest_FOLDER'] = dest_FOLDER
 ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
-"""
-""" SIYA """
-ALLOWED_EXTENSIONS = 'txt'
-upload_FOLDER = '/Users/Siya/Documents/uploads/'
-#app.config['upload_FOLDER'] = upload_FOLDER 
-AUDIO_FOLDER = '/Users/Siya/Downloads/'
-app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
-#app.config['dest_FOLDER'] = dest_FOLDER
-ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
-app.config['ALIGNER_DIR'] = ALIGNER_DIR
-CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
+CURRENT_DIR = '/Users/meiyihe/Desktop/ERSProject/webpage_initial_setup/'
+
+# SIYA
+# ALLOWED_EXTENSIONS = 'txt'
+# upload_FOLDER = '/Users/Siya/Documents/uploads/'
+# #app.config['upload_FOLDER'] = upload_FOLDER 
+# AUDIO_FOLDER = '/Users/Siya/Downloads/'
+# app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
+# dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
+# #app.config['dest_FOLDER'] = dest_FOLDER
+# ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
+# app.config['ALIGNER_DIR'] = ALIGNER_DIR
+# CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
 
 
 script = []

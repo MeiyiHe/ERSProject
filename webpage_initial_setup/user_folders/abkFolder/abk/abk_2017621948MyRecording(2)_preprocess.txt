@@ -1,0 +1,10 @@
+use0
+perform0
+skew0
+variation0
+directions0
+target0
+minimize0
+iterative0
+local0
+recall0

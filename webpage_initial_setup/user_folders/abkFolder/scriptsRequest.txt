@@ -1,0 +1,8 @@
+SENTENCE ( 1 ): 
+Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
+
+SENTENCE ( 2 ): 
+Second, we displace eight moves to size the three types of buffer.
+
+WORD LIST ( 1 ): 
+use perform skew variation directions target minimize iterative local recall .
