@@ -1,8 +1,0 @@
-SENTENCE ( 1 ): 
-Recall that we perform iterative local moves to minimize skew variation.
-
-SENTENCE ( 2 ): 
-First, we displace the target buffer in eight directions and size the buffer.
-
-WORD LIST ( 1 ): 
-use three types of .
