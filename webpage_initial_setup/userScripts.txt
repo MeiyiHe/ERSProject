@@ -3,3 +3,9 @@ We use three types of local moves.
 We use three types of local moves to minimize variation.
 Recall that we minimize skew variation.
 First, we displace the target buffer in eight directions and size the buffer.
+Second, we displace eight moves to size the three types of buffer.
+Three target moves minimize local variation.
+Four score and seven years ago our fathers brought forth on this continent, a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
+Recall the proposition that we minimize dedicated skew and the seven buffer moves are created equal to this new continent.
+Three moves target minimize local variation.
+Three local moves minimize target variation.

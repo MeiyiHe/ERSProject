@@ -1,0 +1,23 @@
+Recall2
+that1 we1 perform1 iterative1 local1 moves1 to1 minimize1 skew1 variation3
+We2 use1 three1 types1 of1 local1 moves3
+We2 use1 three1 types1 of1 local1 moves1 to1 minimize1 variation3
+Recall2
+that1 we1 minimize1 skew1 variation3
+First9
+we5 displace1 the1 target1 buffer1 in1 eight1 directions1
+and1 size1 the1 buffer3
+Second9
+we5 displace1 eight1 moves1 to1 size1 the1 three1 types1 of1 buffer3
+Three2 target1 moves1 minimize1 local1 variation3
+Four2 score1
+and1 seven1 years1 ago1 our1 fathers1 brought1 forth1 on1 this1 continent4
+a5 new1 nation4
+conceived5 in1 Liberty4
+and5 dedicated1 to1 the1 proposition1
+that1 all1 men1 are1 created1 equal3
+Recall2 the1 proposition1
+that1 we1 minimize1 dedicated1 skew1
+and1 the1 seven1 buffer1 moves1 are1 created1 equal1 to1 this1 new1 continent3
+Three2 moves1 target1 minimize1 local1 variation3
+Three2 local1 moves1 minimize1 target1 variation3

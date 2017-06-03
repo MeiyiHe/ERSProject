@@ -1,0 +1,1 @@
+recall that we perform iterative local moves to minimize skew variation.

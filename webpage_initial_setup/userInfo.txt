@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 meiyi	mehe@ucsd.edu
-=======
-meiyi	mehe@ucsd.edu
+testGL	jfealkklfjclkw
 Siya	sil142@ucsd.edu
->>>>>>> e373cf241040ceb16012a600e5b43bdc27a93975
+lusha	hahaahahah

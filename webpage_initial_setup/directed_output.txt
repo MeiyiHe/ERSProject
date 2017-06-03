@@ -1,0 +1,127 @@
+welcome back
+sil142@ucsd.edu
+Siya
+app.config[upload folder]
+/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/user_folders/SiyaFolder
+filename
+cover_one_sentence.txt
+
+
+first edition with tags:
+recall2 that1 we1 use1 three1 types1 of1 skew1 variation3.
+
+
+second edition to lines:
+recall2
+that1 we1 use1 three1 types1 of1 skew1 variation3
+txt processed.
+
+[]
+words!!!
+['recall2']
+number_words
+1
+counts!!!
+[0]
+
+The array used to store counts: [0]
+The number of words in the line is 1
+Looking for the file - recall2.wav
+Exist!
+The array v_1: [1]
+The array v_2: [1]
+
+i and count[i] is 0, 1
+recall2
+[['recall2']]
+1
+This will be: ['recall2']
+words!!!
+['that1', 'we1', 'use1', 'three1', 'types1', 'of1', 'skew1', 'variation3']
+number_words
+8
+counts!!!
+[0, 0, 0, 0, 0, 0, 0, 0]
+
+The array used to store counts: [0, 0, 0, 0, 0, 0, 0, 0]
+The number of words in the line is 8
+Looking for the file - that1.wav
+Exist!
+Looking for the file - we1.wav
+Exist!
+Looking for the file - use1.wav
+Looking for the file - three1.wav
+Looking for the file - types1.wav
+Looking for the file - of1.wav
+Looking for the file - skew1.wav
+Exist!
+Looking for the file - variation3.wav
+Exist!
+Looking for the file - that1we1.wav
+Exist!
+Looking for the file - we1use1.wav
+Looking for the file - use1three1.wav
+Looking for the file - three1types1.wav
+Looking for the file - types1of1.wav
+Looking for the file - of1skew1.wav
+Looking for the file - skew1variation3.wav
+Exist!
+Looking for the file - that1we1use1.wav
+Looking for the file - we1use1three1.wav
+Looking for the file - use1three1types1.wav
+Looking for the file - three1types1of1.wav
+Looking for the file - types1of1skew1.wav
+Looking for the file - of1skew1variation3.wav
+Looking for the file - that1we1use1three1.wav
+Looking for the file - we1use1three1types1.wav
+Looking for the file - use1three1types1of1.wav
+Looking for the file - three1types1of1skew1.wav
+Looking for the file - types1of1skew1variation3.wav
+Looking for the file - that1we1use1three1types1.wav
+Looking for the file - we1use1three1types1of1.wav
+Looking for the file - use1three1types1of1skew1.wav
+Looking for the file - three1types1of1skew1variation3.wav
+Looking for the file - that1we1use1three1types1of1.wav
+Looking for the file - we1use1three1types1of1skew1.wav
+Looking for the file - use1three1types1of1skew1variation3.wav
+Looking for the file - that1we1use1three1types1of1skew1.wav
+Looking for the file - we1use1three1types1of1skew1variation3.wav
+Looking for the file - that1we1use1three1types1of1skew1variation3.wav
+The array v_1: [2, 1, 0, 0, 0, 0, 2, 1]
+check_path
+./user_folders/SiyaFolder/Siya/GL/use.wav
+check_path
+./user_folders/SiyaFolder/Siya/GL/three.wav
+check_path
+./user_folders/SiyaFolder/Siya/GL/types.wav
+check_path
+./user_folders/SiyaFolder/Siya/GL/of.wav
+The array v_2: [2, 1, 1, 1, 1, 1, 2, 1]
+
+i and count[i] is 0, 2
+that1we1
+[['recall2'], ['that1we1']]
+2
+i and count[i] is 2, 3
+use0
+[['recall2'], ['that1we1', 'use0']]
+3
+i and count[i] is 3, 4
+three0
+[['recall2'], ['that1we1', 'use0', 'three0']]
+4
+i and count[i] is 4, 5
+types0
+[['recall2'], ['that1we1', 'use0', 'three0', 'types0']]
+5
+i and count[i] is 5, 6
+of0
+[['recall2'], ['that1we1', 'use0', 'three0', 'types0', 'of0']]
+6
+i and count[i] is 6, 8
+skew1variation3
+[['recall2'], ['that1we1', 'use0', 'three0', 'types0', 'of0', 'skew1variation3']]
+8
+This will be: ['that1we1', 'use0', 'three0', 'types0', 'of0', 'skew1variation3']
+finished!
+--- 0.515953063965 seconds ---

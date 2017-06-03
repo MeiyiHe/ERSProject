@@ -2,25 +2,38 @@
 from flask import Flask,abort,render_template,request,redirect,url_for, send_file
 from werkzeug import secure_filename
 import re,os
+from os.path import basename
+from datetime import datetime
 from subprocess import call
 from importFunctionTest import rewritten
-import uniqueList
+import uniqueList, returnUserUniqueList
 from collections import defaultdict
-import textProcess
+import textProcess,textPreprocess,generateLib,generateLibW,covering
 import final_analyze_textgridDIR
 
 app = Flask(__name__)
-
+""" MEIYI 
 ALLOWED_EXTENSIONS = 'txt'
-UPLOAD_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER 
+upload_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
+app.config['upload_FOLDER'] = upload_FOLDER 
 AUDIO_FOLDER = '/Users/meiyihe/Downloads'
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
-DEST_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
-app.config['DEST_FOLDER'] = DEST_FOLDER
+dest_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
+app.config['dest_FOLDER'] = dest_FOLDER
 ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
-
+"""
+""" SIYA """
+ALLOWED_EXTENSIONS = 'txt'
+upload_FOLDER = '/Users/Siya/Documents/uploads/'
+#app.config['upload_FOLDER'] = upload_FOLDER 
+AUDIO_FOLDER = '/Users/Siya/Downloads/'
+app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
+dest_FOLDER = '/Users/Siya/Documents/audio_uploaded'
+#app.config['dest_FOLDER'] = dest_FOLDER
+ALIGNER_DIR = '/Users/Siya/Desktop/ERSPGroup/Prosodylab-Aligner/'
+app.config['ALIGNER_DIR'] = ALIGNER_DIR
+CURRENT_DIR = '/Users/Siya/Documents/ERSPtest/erspGit/ERSProject/webpage_initial_setup/'
 
 
 script = []
@@ -29,7 +42,15 @@ audio = []
 text = []
 processed_script = []
 old_user = False
+incremental = False
+tmp_list = []
 loginChecking = defaultdict()
+genlib_filelist = []
+genlibW_fileslist = []
+
+
+
+
 #loginChecking['meiyi'] = 'mehe@ucsd.edu'
 
 with open('userInfo.txt', 'r') as info:
@@ -52,7 +73,8 @@ def hello():
         email = ''.join(request.form['email'])
         global user
         user = ''.join(request.form['userName'])
-        
+        global userDir
+        userDir = user + 'Folder'
         if user in loginChecking and loginChecking[user] == email:
             #global greetings
             greetings = "welcome back"
@@ -63,6 +85,7 @@ def hello():
             print loginChecking[user]
         else:
             #global greetings
+
             greetings = "hello, first time user"
             userInfo = open('newUser.txt', 'w+')
             userInfo.write(user)
@@ -77,6 +100,17 @@ def hello():
                 with open('newUser.txt', 'r') as infile:
                     for line in infile:
                         outfile.write(line)
+            command = 'mkdir {0}'.format(userDir)
+            call(command.split(),cwd='user_folders',shell=False)
+            command = 'mkdir {0}'.format(user)
+            call(command.split(),cwd='user_folders/'+ userDir,shell=False)
+            command = 'mkdir GL'
+            call(command.split(),cwd='user_folders/'+ userDir +'/'+user, shell=False)
+
+        dest_FOLDER = CURRENT_DIR + 'user_folders/' + userDir + '/'+user
+        app.config['dest_FOLDER'] = dest_FOLDER
+        upload_FOLDER = CURRENT_DIR + 'user_folders/' + userDir
+        app.config['upload_FOLDER'] = upload_FOLDER
         
         return redirect(url_for('upload_file', user=user))
     return render_template('hello.html')
@@ -89,7 +123,11 @@ def upload_file():
         print user
         if file:
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'],filename)
+            print "app.config[upload folder]"
+            print app.config['upload_FOLDER']
+            print "filename"
+            print filename
+            filepath = os.path.join(app.config['upload_FOLDER'],filename)
             file.save(filepath)
             
             script.append(filepath)
@@ -107,7 +145,7 @@ def upload_audio():
         file = request.files['file']
         if file:
             filename = secure_filename(file.filename)
-            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            filepath = os.path.join(app.config['upload_FOLDER'], filename)
             file.save(filepath)
             audio.append(filepath)
             return redirect(url_for('review',user=user))
@@ -118,18 +156,58 @@ def select_options():
     if request.method == 'POST':
         if request.form['button1'] == 'add_lib':
             if old_user:
-                pass
+                returnUserUniqueList.returnUserSetCover(script[0], app.config['upload_FOLDER'])
                 #script.append('scriptsSystem.txt')
             else:
-                uniqueList.setCover(script[0])
+                uniqueList.setCover(script[0], app.config['upload_FOLDER'])
                 #script.append('scriptsRequest.txt')
 
-            return redirect(url_for('recorder', user=user))
+            #return redirect(url_for('recorder', user=user))
         elif request.form['button1'] == 'synthesize':
             #not yet implemented
-            return hello()
-    
+            filename = script[0] # full path
+            #textPreprocess.preprocess(filename)
+            ret_cover = covering.covering('user_folders/' + userDir + '/'+user, filename)
+            #covering.covering(app.config['upload_FOLDER'],filename)
+            if ret_cover == 1:
+                print "SUCCESS, CHECK YOUR USER FOLDER"
+                return render_template('review.html')
+            #need more audios 
+            else:
+                incremental = True
+                #script = []
+                #script.append('''file_need_to_record''')
+                returnUserUniqueList.returnUserSetCover(script[0], app.config['upload_FOLDER'])
+        return redirect(url_for('recorder', user=user))
+            #return render_template('review.html')
     return render_template('selectOptions.html',user=user)
+####ATTENTION LARGE CHUNKS OF PSEUDO CODE
+            #can be covered
+"""            if fully covered:
+                print "SUCCESS, CHECK YOUR USER FOLDER"
+            #need more audios 
+            else:
+                incremental = True
+                script = []
+                script.append('''file_need_to_record''')
+                run '''setCoverAgain'''(script[0])
+                filename = '''result text file of above''' 
+                temp = []
+                with open(filename) as f:
+                    for char in f.read():
+                        if char != '\n':
+                            temp.append(char)
+                    temp_list = ''.join(temp)
+                    temp_list = unicode(temp_list, 'ascii', 'ignore')
+                print "temp_list"
+                print temp_list
+                recorder()
+"""
+#####END OF PSEUDO
+            
+            #return redirect(url_for('review', user=user))
+    
+    
 
 @app.route('/review', methods=['GET', 'POST'])
 def review():
@@ -144,15 +222,31 @@ def review():
     #return render_template('review.html',text=txt )
 @app.route('/recorder', methods=['GET', 'POST'])
 def recorder():
-    #read_uploaded_file()
     if request.method == 'POST':
         if request.form['sub_button'] == 'collect':
             submit_audio_all()
-            command = 'python3 -m {0} -d {1} -a {2}'.format('aligner','eng.dict',app.config['DEST_FOLDER'])
+            command = 'python3 -m {0} -d {1} -a {2}'.format('aligner','eng.dict',app.config['dest_FOLDER'])
             call(command.split(), cwd=app.config['ALIGNER_DIR'], shell=False) 
-            final_analyze_textgridDIR.grep_timestamp(app.config['DEST_FOLDER'])
+            final_analyze_textgridDIR.grep_timestamp(app.config['dest_FOLDER'])
+            # by this point, should have all the timestamp files necessary
+
+            # item ---> full path, file extension '.txt'
+            for item in genlib_filelist:
+                textPreprocess.preprocess(item)
+            for item in genlibW_fileslist:
+                textPreprocess.preprocessW(item)
+
+            for item in genlib_filelist:
+                generateLib.generateLib(os.path.dirname(item),basename(os.path.splitext(item)[0]))
+            for item in genlibW_fileslist:
+                generateLibW.generateLibW(os.path.dirname(item),basename(os.path.splitext(item)[0]))
+
+            for item in os.listdir(app.config['dest_FOLDER']):
+                if os.path.isfile(os.path.join(app.config['dest_FOLDER'],item)):
+                    os.rename(os.path.join(app.config['dest_FOLDER'],item), os.path.join(app.config['upload_FOLDER'],item))
 
             return render_template('review.html')
+    
     tmp_list = read_uploaded_file()
     
     print tmp_list
@@ -160,27 +254,14 @@ def recorder():
 
 @app.route('/read_file', methods=['GET'])
 def read_uploaded_file():
-    if old_user:
-        filename = script[0]
-    else:
-        filename = 'scriptsRequest.txt'
+# """    if old_user:
+#         filename = script[0]
+#     else:"""
+    filename = app.config['upload_FOLDER'] + '/scriptsRequest.txt'
     tmp = []
     print filename
     #filename = secure_filename(request.args.get('filename'))
     try:
-        """
-        if filename and allowed_filename(filename):
-            print "file allowed"
-            with open(os.path.join(app.config['UPLOAD_FOLDER'], filename)) as f:
-                for char in f.read():
-                    if char != '\n':
-                        tmp.append(char)
-                sentence_list = ''.join(tmp)
-                sentence_list = unicode(sentence_list, 'ascii', 'ignore')
-            
-
-            return sentence_list
-        """
         if filename and allowed_filename(filename):
             print "file allowed"
             with open( filename) as f:
@@ -205,34 +286,47 @@ def submit_audio_all():
     for i in sorted(os.listdir(app.config['AUDIO_FOLDER']), key=mtime):
         if os.path.isfile(os.path.join(app.config['AUDIO_FOLDER'],i)) and 'MyRecording' in i:
             modified = i.replace(' ','')
-            os.rename(os.path.join(app.config['AUDIO_FOLDER'],i), os.path.join(app.config['DEST_FOLDER'],modified))
-            newname = 'p'+modified
+            os.rename(os.path.join(app.config['AUDIO_FOLDER'],i), os.path.join(app.config['dest_FOLDER'],modified))
+            newname = user+'_'+str(datetime.now().year) + str(datetime.now().month) + str(datetime.now().day)+str(datetime.now().hour)+str(datetime.now().minute)+modified
             command = 'ffmpeg -i {0} -ar 16000 -ac 1 {1}'.format(modified,newname)
-            call(command.split(), cwd=app.config['DEST_FOLDER'], shell=False)
+            call(command.split(), cwd=app.config['dest_FOLDER'], shell=False)
             command = 'rm {0}'.format(modified)
-            call(command.split(), cwd=app.config['DEST_FOLDER'], shell=False)
-            audio_namelist.append(os.path.splitext(os.path.join(app.config['DEST_FOLDER'],newname))[0])
+            call(command.split(), cwd=app.config['dest_FOLDER'], shell=False)
+            audio_namelist.append(os.path.splitext(os.path.join(app.config['dest_FOLDER'],newname))[0])
+
 
     if old_user:
         filename = script[0]
     else:
-        filename = 'scriptsSystem.txt'
+        filename = app.config['upload_FOLDER'] +'/scriptsSystem.txt'
     
     with open(filename) as f:
         text = f.read()
     
-    sentences = re.split(r' *[\.\?!][\'"\)\]]* *', text)
+    #splitted = re.split('(?<=[.!?]) +', text)
+    #splitted = re.split(r' *[\.\?!][\'"\)\]]* *', text)
+    splitted = re.split('(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s',text)
 
+    print splitted
     for i in range(len(audio_namelist)):
-        textProcess.output_script(sentences[i], audio_namelist[i]+'.lab')
-        with open(audio_namelist[i]+'.txt', 'w+') as w:
-            w.write(sentences[i])
-
         
+        words = True
+        for char in splitted[i]:
+            if ord(char) != 32 and ord(char) != 10:
+                if (ord(char) < 65) or ((ord(char) > 90) and (ord(char) < 97)) or (ord(char) > 122):
+                    words = False
 
+        textProcess.output_script(splitted[i], audio_namelist[i]+'.lab')
+        if words == False:
+            genlib_filelist.append(audio_namelist[i]+'.txt')
+        else:
+            genlibW_fileslist.append(audio_namelist[i]+'.txt')
 
-
-
+        with open(audio_namelist[i]+'.txt', 'w+') as w:
+            w.write(splitted[i])
+    
+    print genlib_filelist # just filenames without extensions
+    print genlibW_fileslist # just filenames without extensions
 
 
 

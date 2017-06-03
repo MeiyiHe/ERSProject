@@ -11,7 +11,7 @@ import linecache
 
 
 
-def uniqueList(file):
+def uniqueList(file, dirname):
 
 	num = 0
 	punctuations = set('''!()-[]{};:'"\,<>./?@#$%^&*_~\n''')
@@ -26,15 +26,24 @@ def uniqueList(file):
 	words = [''.join(c for c in s if c not in punctuations) for s in words]
 	words = [x.lower() for x in words]
 	unique = set()
+	
+	libPath = dirname + '/Library.txt'
+	initLib = open(libPath, 'w')
+	
 	for w in words:
 		if w not in unique:
+			print w
 			unique.add(w)
+			initLib.write(w)
+			initLib.write('\n')
+
+	initLib.close()
 
 	uniqueWords = defaultdict(int)
 	for element in unique:
 		uniqueWords[element] += 1
-
 	
+
 	return uniqueWords
 
 def setCover(file, dirname):
@@ -53,9 +62,8 @@ def setCover(file, dirname):
 	with open(file) as infile:
 		new = infile.read()
 		for line in new.split('. '):
-			#print "in function"
 			dest1.write(line)
-			#dest1.write('.')
+
 			dest1.write('\n')
 	dest1.close()
 
@@ -94,9 +102,8 @@ def setCover(file, dirname):
 				listWithLine[i][string] = listWithFrq[string] 
 
 	# get the unique word list
-	listUnique = uniqueList(file)
-	#print listUnique
-	#print "in setcover method(): length of listUnique: ", len(listUnique)
+	listUnique = uniqueList(file, dirname)
+
 	total = len(listUnique)
 	
 	#find a sentence that contains most less frequncy words from listWithLine
@@ -153,9 +160,7 @@ def setCover(file, dirname):
 			#print rate
 			scripts.write("SENTENCE ( " + str(scCount) + " ): \n")
 			scCount += 1
-			#print(linecache.getline('userScripts.txt', line+1) +"\n")
-			#print listUnique
-			#print listTemp
+
 			scripts.write(linecache.getline('userScripts.txt', line+1) +"\n")
 			scriptsSystem.write(linecache.getline('lowerScript.txt', line+1) +"\n")
 			for k, v in listWithLine.pop(line).items():
@@ -164,19 +169,15 @@ def setCover(file, dirname):
 					counter += 1
 
 			listTemp.clear()
-			#print listUnique
 
-		#print "after checking rate : ", rate
 
 		if count > len(listUnique):
-			#print "count: " + str(count) + " length of listUnique: " + str(len(listWithLine))
 			count = len(listUnique)
 			timesOfReduce += 1
 
 
 		if rate > 0.75 and rate < 1:
-			#print "in > 0.85"
-		#if len(listUnique) != 0 and len(listTemp) == 0:
+			
 			if writeUniqueList == 0:
 				tmp = []
 				#print listUnique
@@ -203,7 +204,6 @@ def setCover(file, dirname):
 						scriptsSystem.write(' ')
 					scripts.write('.\n')
 
-
 				listUnique.clear()
 				
 
@@ -228,7 +228,8 @@ def setCover(file, dirname):
 
 #unique = uniqueList('abkTalkNote.txt')
 #setCover('0530-note/7sen.txt')
-#setCover('/Users/meiyihe/Desktop/testUploadFile/0530-note/5sen.txt', 'meiyiFolder')
+#setCover('/Users/meiyihe/Desktop/testUploadFile/0530-note/11sen.txt', 'meiyiFolder')
+#uniqueList('/Users/meiyihe/Desktop/testUploadFile/0530-note/11sen.txt','meiyiFolder')
 
 
 

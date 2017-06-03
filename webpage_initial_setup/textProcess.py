@@ -3,7 +3,6 @@
 #	Usage: python textProcess.py txtfile_to_read.txt txtfile_to_write.txt txtfile_to_write_freq.txt
 #	txtfile_to_read.txt is the file of the input script ("/.../input_script_170224_004.txt")
 
-
 #	XXXXdeferedXXXXXtxtfile_to_write.txt is the file containing distinct words in the input script ("/.../output_words.txt")
 #	XXXXdeferedXXXXXtxtfile_to_write_freq.txt is the file containing respective frequencies of words in txtfile_to_write ("/.../output_freq.txt")
 
