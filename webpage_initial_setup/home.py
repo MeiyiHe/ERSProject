@@ -195,32 +195,7 @@ def select_options():
         return redirect(url_for('recorder', user=user))
             #return render_template('review.html')
     return render_template('selectOptions.html',user=user)
-####ATTENTION LARGE CHUNKS OF PSEUDO CODE
-            #can be covered
-"""            if fully covered:
-                print "SUCCESS, CHECK YOUR USER FOLDER"
-            #need more audios 
-            else:
-                incremental = True
-                script = []
-                script.append('''file_need_to_record''')
-                run '''setCoverAgain'''(script[0])
-                filename = '''result text file of above''' 
-                temp = []
-                with open(filename) as f:
-                    for char in f.read():
-                        if char != '\n':
-                            temp.append(char)
-                    temp_list = ''.join(temp)
-                    temp_list = unicode(temp_list, 'ascii', 'ignore')
-                print "temp_list"
-                print temp_list
-                recorder()
-"""
-#####END OF PSEUDO
-            
-            #return redirect(url_for('review', user=user))
-    
+
     
 
 @app.route('/review', methods=['GET', 'POST'])
