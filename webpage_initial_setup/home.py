@@ -15,11 +15,11 @@ app = Flask(__name__)
 """ MEIYI 
 ALLOWED_EXTENSIONS = 'txt'
 upload_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/uploads/'
-app.config['upload_FOLDER'] = upload_FOLDER 
+#app.config['upload_FOLDER'] = upload_FOLDER 
 AUDIO_FOLDER = '/Users/meiyihe/Downloads'
 app.config['AUDIO_FOLDER'] = AUDIO_FOLDER
 dest_FOLDER = '/Users/meiyihe/Desktop/testUploadFile/audio_uploaded'
-app.config['dest_FOLDER'] = dest_FOLDER
+#zapp.config['dest_FOLDER'] = dest_FOLDER
 ALIGNER_DIR = '/Users/meiyihe/Prosodylab-Aligner'
 app.config['ALIGNER_DIR'] = ALIGNER_DIR
 """
@@ -129,7 +129,21 @@ def upload_file():
             print filename
             filepath = os.path.join(app.config['upload_FOLDER'],filename)
             file.save(filepath)
-            
+
+            replacements = {'. ':'.\n', '? ':'?\n', '! ':'!\n'}
+            lines = []
+            with open(filepath) as f:
+                for line in f:
+                    for src,target in replacements.iteritems():
+                        line = line.replace(src, target)
+                    lines.append(line)
+            command = 'rm {0}'.format(filename)
+            call(command.split(),cwd=app.config['upload_FOLDER'],shell=False)
+            print lines
+            with open(filepath,'w') as f:
+                for line in lines:
+                    f.write(line)
+
             script.append(filepath)
             #uniqueList.setCover(filepath)
 
@@ -211,13 +225,7 @@ def select_options():
 
 @app.route('/review', methods=['GET', 'POST'])
 def review():
-    """print script
-    print audio
-    with open(script[0],'r') as f:
-        for line in f:
-            text.append(str(line))
-        txt = ''.join(text)
-    print txt"""
+
     return redirect(url_for('recorder',user=user))
     #return render_template('review.html',text=txt )
 @app.route('/recorder', methods=['GET', 'POST'])
@@ -268,6 +276,8 @@ def read_uploaded_file():
                 for char in f.read():
                     if char != '\n':
                         tmp.append(char)
+                    else:
+                        tmp.append(' ')
                 sentence_list = ''.join(tmp)
                 sentence_list = unicode(sentence_list, 'ascii', 'ignore')
             
