@@ -1,4 +1,4 @@
-#uniqueList('file')
+#!/usr/bin/python
 import sys
 import os
 import string
@@ -14,6 +14,7 @@ import linecache
 def uniqueList(file, dirname):
 
 	num = 0
+	# define punctuations, read file and take off all punctuations
 	punctuations = set('''!()-[]{};:'"\,<>./?@#$%^&*_~\n''')
 	with open(file) as infile:
 		c = infile.read()
@@ -22,32 +23,37 @@ def uniqueList(file, dirname):
 		num += len(line)
 		words = set(line)
 
-	#print uniqueWords
+	# make all words to lower, and build a set
 	words = [''.join(c for c in s if c not in punctuations) for s in words]
 	words = [x.lower() for x in words]
 	unique = set()
 	
+	# initialize the 'Library' file
 	libPath = dirname + '/Library.txt'
 	initLib = open(libPath, 'w')
 	
+
+	# write all unique words in Library
 	for w in words:
 		if w not in unique:
-			#print w
 			unique.add(w)
 			initLib.write(w)
 			initLib.write('\n')
 
 	initLib.close()
 
+	# count unique words
 	uniqueWords = defaultdict(int)
 	for element in unique:
 		uniqueWords[element] += 1
-	
 
 	return uniqueWords
 
+
+
 def setCover(file, dirname):
-	#directory = os.path.dirname(name)
+	
+	# since first time user, create a directory to store things
 	if not os.path.exists(dirname):
 		os.makedirs(dirname)
 
@@ -127,8 +133,8 @@ def setCover(file, dirname):
 	scriptsSystem = open( systemPath ,'w')
 	#scriptsSystem = open('scriptsSystem.txt','w')
 
-	#count
-
+	
+	# while unique list is not empty
 	while bool(listUnique):
 		
 		c = 0
@@ -136,6 +142,7 @@ def setCover(file, dirname):
 			frqCount = 0
 			line = 0
 
+		# checking each lines, find the line that contains most unique words
 		for k,v in listWithLine.items():
 			count1 = 0
 
@@ -146,7 +153,7 @@ def setCover(file, dirname):
 					frqCount = count1
 					listTemp.clear()
 					line = k
-
+		# store the line in temp
 		temp = listWithLine[line]
 
 		for key, val in temp.items():
@@ -154,13 +161,15 @@ def setCover(file, dirname):
 
 		prev = counter
 
-
+		# calculating rate 
 		rate = float(counter)/float(total)
+		# only when less than 75%, write sentences
 		if rate <= 0.75:
 			#print rate
 			scripts.write("SENTENCE ( " + str(scCount) + " ): \n")
 			scCount += 1
 
+			# write the lines to script and pop out from unique list
 			scripts.write(linecache.getline('userScripts.txt', line+1) +"\n")
 			scriptsSystem.write(linecache.getline('lowerScript.txt', line+1) +"\n")
 			for k, v in listWithLine.pop(line).items():
@@ -175,9 +184,9 @@ def setCover(file, dirname):
 			count = len(listUnique)
 			timesOfReduce += 1
 
-
+		# when less than 25%, write words
 		if rate > 0.75 and rate < 1:
-			
+
 			if writeUniqueList == 0:
 				tmp = []
 				#print listUnique

@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+# this has similar logic to uniqueList, the only difference is 
+# it will not create a file called "Library" but will append to it
 import checker
 from collections import defaultdict
 import sys
