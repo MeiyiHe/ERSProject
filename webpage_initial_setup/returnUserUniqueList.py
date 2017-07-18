@@ -1,4 +1,7 @@
 #!/usr/bin/python
+
+# this has similar logic to uniqueList, the only difference is 
+# it will not create a file called "Library" but will append to it
 import checker
 from collections import defaultdict
 import sys
@@ -143,7 +146,7 @@ def returnUserSetCover(file, dirname):
 
 
 		rate = float(counter)/float(total)
-		if rate <= 0.75:
+		if rate <= 0.75 and len(listUnique) > 20:
 			#print rate
 			scripts.write("SENTENCE ( " + str(scCount) + " ): \n")
 			scCount += 1
@@ -163,7 +166,7 @@ def returnUserSetCover(file, dirname):
 			timesOfReduce += 1
 
 
-		if rate > 0.75 and rate < 1:
+		if len(listUnique) < 20 or (rate > 0.75 and rate < 1):
 			
 			if writeUniqueList == 0:
 				tmp = []

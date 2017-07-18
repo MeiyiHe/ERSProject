@@ -210,11 +210,17 @@ def select_options():
 @app.route('/review', methods=['GET', 'POST'])
 def review():
     if request.method == 'POST':
-        if request.form['output'] == 'output':
+        if request.form['button2'] == 'output':
+            #print outputPath 
+            
             return send_file(outputPath, mimetype="wav", as_attachment=True, attachment_filename=basename(os.path.splitext(script[0])[0])+'_output.wav')
-    #return redirect(url_for('recorder',user=user))
+        if request.form['button2'] == 'logout':
+            
+            return redirect(url_for('index'))
+            
     return render_template('review.html')
-    #return redirect(url_for('review', path=outputPath))
+
+    
 @app.route('/recorder', methods=['GET', 'POST'])
 def recorder():
     if request.method == 'POST':
