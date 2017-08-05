@@ -1,0 +1,39 @@
+Net2 N1 one1 becomes1 net1 N1 one1 prime1 in1 two1 D1
+and1 its1 length1 is1 three1 due1 to1 three1 hops1 between1 segments1 A1 B4
+B5 C1
+and1 C1 D3
+Also9
+there5 is1 chicken1
+and1 egg1 loop1 for1 such1 an1 optimization4
+where5 heights1 of1 cell1 rows1 are1 defined1 during1 floorplan1 stage1 before1 placement3
+We2 develop1 two1 new1 mixed1 integer1 linear1 programming1 formulations1
+that1 extend1 the1 resource1 constrained1 project1 scheduling1 problem1 formulated1
+and1 solved1 by1 Kolisch1 et1 al3
+First9
+what5 is1 mix1
+and1 match1 die1 stacking6
+It2 is1 an1 interesting1 idea1 proposed1 by1 previous1 works1 to1 stack1 slow1 dies1 with1 fast1 dies1 to1 improve1 the1 parametric1 yield1 in1 three1 D1 I1 Cs3
+Networks2 on1 chip1 have1 proved1 to1 be1 highly1 scalable1 interconnect1 fabrics1 for1 many1 core1 processor1 architectures1
+and1 ORION1 is1 a1 widely1 used1 tool1 to1 estimate1 power1
+and1 area1 of1 NOCs3
+These2 include1 automatic1 handling1 of1 multiple1 aspect1 ratios4
+pin5 placement1
+that1 is1 aspect1 ratio1
+and1 perimeter1 aware4
+usage5 of1 twenty1 eight1 nanometer1 F1 D1 S1 O1 I1 S1 RAMs1
+and1 an1 automated1 flow1 to1 sweep1 multiple1 key1 implementation1 parameters3
+The2 deep1 blue1 bar1 on1 the1 left1 shows1 slack1 with1 no1 I1 R1 is1 positive1 four1 hundred1
+and1 eighty1 picoseconds1 on1 S1 RAM1 number1 one3
+In2 conclusion4
+we5 note1
+that1 early1 stage1 prediction1 of1 timing1 failure1 is1 important1
+and1
+that1 timing1 closure1 with1 multiple1 analyses1 is1 also1 important1 for1 complex1 S1 O1 Cs1 for1 accuracy1
+and1 faster1 design1 turnaround1 time3
+Here2 is1 an1 R1 C1 M1 use1 case1 using1 an1 instance1 from1 company1 X1 which1 has1 four1 projects4
+eight5 activities1 per1 project4
+four5 types1 of1 engineers1
+and1 maximum1 duration1 of1 sixteen1 work1 weeks3
+For2 the1 same1 task1 schedule4
+R5 C1 L1 G1 policies1 will1 initially1 execute1 cores1 at1 three1 gigahertz1
+and1 later1 drop1 to1 one1 point1 six1 gigahertz1 to1 meet1 lifetime1 constraints3

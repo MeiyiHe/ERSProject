@@ -1,0 +1,33 @@
+We generate three hundred random swizzling patterns for a simple testcase with five signals, five tracks and an eight thousand micron channel divided into eight segments.
+
+
+In addition, the small, medium and large margin indicate cases with one sigma, two sigma and three sigma S S corners.
+
+
+Tools contain millions of lines of complex black box code; also, tools diverge from published documentation, and use proprietary timing engines.
+
+
+We report classification metrics that are common in the M L literature, that is, false positives, false negatives, precision and recall.
+
+
+The O S scheduler obtains core usage and performance requirements from applications and determines the total execution times in norm  RESTART
+
+
+
+The O S scheduler obtains core usage and performance requirements from applications and determines the total execution times in nominal and overdrive modes, the weights, and the nominal frequencies.
+
+
+We formulate an integer linear program to select D V D hotspots. We select a limited number of D V D hotspots to optimize so as to maximize the minimum D V D aware slack.
+
+
+We also apply the stacked domain optimization to an industrial product design, which contains dual core M four M C U, modem, and memories.
+
+
+If signal I is on track K and signal I prime is on track K minus one or vice versa, then this constraint enforces that they are neighbors.
+
+
+In this work, we propose a D RAM routing channel optimizer to specifically target the layout design of long, resource constrained channels in modern D RAM products.
+
+
+The floorplan context, for example, core area, core aspect ratio, clock entry point, placement and routing blockage as a percentage of the core area, tool constraints, for example, maximum skew, delay, buffer and sink transition time, maximum fanout, buffer size and wire width. 
+

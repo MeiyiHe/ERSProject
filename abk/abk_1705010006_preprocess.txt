@@ -1,0 +1,57 @@
+We2 generate1 three1 hundred1 random1 swizzling1 patterns1 for1 a1 simple1 testcase1 with1 five1 signals4
+five5 tracks1
+and1 an1 eight1 thousand1 micron1 channel1 divided1 into1 eight1 segments3
+In2 addition4
+the5 small4
+medium5
+and1 large1 margin1 indicate1 cases1 with1 one1 sigma4
+two5 sigma1
+and1 three1 sigma1 S1 S1 corners3
+Tools2 contain1 millions1 of1 lines1 of1 complex1 black1 box1 code1
+also4
+tools5 diverge1 from1 published1 documentation4
+and5 use1 proprietary1 timing1 engines3
+We2 report1 classification1 metrics1
+that1 are1 common1 in1 the1 M1 L1 literature4
+that5 is4
+false5 positives4
+false5 negatives4
+precision5
+and1 recall3
+The2 O1 S1 scheduler1 obtains1 core1 usage1
+and1 performance1 requirements1 from1 applications1
+and1 determines1 the1 total1 execution1 times1 in1 norm1 RESTART1 The1 O1 S1 scheduler1 obtains1 core1 usage1
+and1 performance1 requirements1 from1 applications1
+and1 determines1 the1 total1 execution1 times1 in1 nominal1
+and1 overdrive1 modes4
+the5 weights4
+and5 the1 nominal1 frequencies3
+We2 formulate1 an1 integer1 linear1 program1 to1 select1 D1 V1 D1 hotspots3
+We2 select1 a1 limited1 number1 of1 D1 V1 D1 hotspots1 to1 optimize1 so1 as1 to1 maximize1 the1 minimum1 D1 V1 D1 aware1 slack3
+We2 also1 apply1 the1 stacked1 domain1 optimization1 to1 an1 industrial1 product1 design4
+which5 contains1 dual1 core1 M1 four1 M1 C1 U4
+modem12
+and5 memories3
+If2 signal1 I1 is1 on1 track1 K1
+and1 signal1 I1 prime1 is1 on1 track1 K1 minus1 one1 or1 vice1 versa4
+then5 this1 constraint1 enforces1
+that1 they1 are1 neighbors3
+In2 this1 work4
+we5 propose1 a1 D1 RAM1 routing1 channel1 optimizer1 to1 specifically1 target1 the1 layout1 design1 of1 long4
+resource5 constrained1 channels1 in1 modern1 D1 RAM1 products3
+The2 floorplan1 context4
+for5 example4
+core5 area4
+core5 aspect1 ratio4
+clock5 entry1 point4
+placement5
+and1 routing1 blockage1 as1 a1 percentage1 of1 the1 core1 area4
+tool5 constraints4
+for5 example4
+maximum5 skew4
+delay12
+buffer5
+and1 sink1 transition1 time4
+maximum5 fanout4
+buffer5 size1
+and1 wire1 width3

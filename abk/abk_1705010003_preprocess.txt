@@ -1,0 +1,39 @@
+The2 previous1 results1 show1 acceptable1 correlations4
+but5 what1 about1 the1 ability1 to1 predict1 the1 unseen1 data6
+We2 implement1 a1 J1 PEG1 design1 with1 different1 clock1 period4
+number5 of1 stages1
+and1 utilization4
+and5 we1 assess1 prediction1 of1 our1 models1 on1 this1 implementation3
+The2 problem1 is1 difficult1 because1 three1 D1 benefits1 vary1 with1 netlist1 topologies1
+and1 constraints1
+the1 implementation1 space1 is1 very1 high1 dimensional1
+and1 the1 lack1 of1 a1 golden1 three1 D1 flow1
+and1 a1 chicken1
+and1 egg1 loop1 of1 trying1 to1 embed1 netlists1 not1 created1 for1 three1 D1 into1 three1 D3
+Further9
+if5 we1 assume1 a1 clock1 tree1 has1 one1 hundred1 K1 sinks1
+and1 fanout1 of1 eight1 at1 each1 level4
+by5 replacing1 all1 the1 single1 bit1 flops1 with1 sixty1 four1 bit1 flop1 trays4
+we5 can1 reduce1 the1 clock1 tree1 depth1 from1 six1 to1 four3
+We2 compare1 our1 proposed1 methodology1 to1 two1 reference1 flows4
+the5 conventional1 methodology1 with1 only1 margin1 insertion1
+and1 a1 brute1 force1 method1 which1 uses1 error1 tolerant1 flip1 flops1 only1 for1 timing1 critical1 paths3
+We2 derive1 hybrid1 surrogate1 modeling1 or1 H1 S1 M1 surrogate1 models1 described1 in1 C1 four1 for1 each1 set1
+and1 combine1 these1 models1 using1 weights1 determined1 from1 least1 squares1 regression3
+We2 use1 several1 modern1 machine1 learning1 techniques1 including1 artificial1 neural1 networks1
+and1 random1 forests4
+and5 use1 large1 sized1 datasets1 of1 over1 one1 hundred1 K1 datapoints1 for1 training1
+and1 testing3
+We2 hierarchically1 synthesize4
+place5
+and1 route1 using1 multiple1 commercial1 tools1
+Synopsys1 D1 C1
+and1 Cadence1 R1 C1 for1 synthesis4
+and5 Cadence1 S1 O1 C1 Encounter1 for1 place1
+and1 route3
+Minimizing2 clock1 skew1 variation1 is1 a1 strong1 knob1 to1 fix1 this1 ping1 pong1 effect1 because1 only1 datapath1 fixes1 are1 not1 very1 effective1 when1 the1 clock1 paths1 have1 large1 variations3
+Our2 true1 three1 D1 objective1 is1 the1 weighted1 sum1 of1 half1 perimeter1 wirelength1 or1 H1 P1 W1 L1 zero1 of1 the1 bounding1 box1 of1 pins1 A1
+and1 B1 on1 tier1 zero1
+and1 H1 P1 W1 L1 one1 of1 the1 bounding1 box1 of1 pins1 C1
+and1 D4
+both5 shown1 in1 green1 color3

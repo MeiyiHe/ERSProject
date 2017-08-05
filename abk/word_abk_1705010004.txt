@@ -1,0 +1,3 @@
+P--FET P--FETs
+technology optimization clock tree placement and routing floorplanning gate sizing leakage power leakage reduction topology topologies constraint constraints objective function stochastic gradient descent clock period frequency signoff corner corners slack W--N--S  T--N--S total negative slack worst negative slack
+

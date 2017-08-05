@@ -1,0 +1,38 @@
+modeling and simulation modeling and analysis and simulation models model validation fit fitting neural network artificial neural network least-squares error errors squared error metric minimize the minimization of maximize the maximization of 
+
+sixteen nanometer FinFET
+P--and--R  S--I   D--F--M  E--D--A   N--B--T--I  S--RAM   S--RAMs
+three--D   I--C
+three--D--I--C
+NOC  NOCs  network-on-chip networks-on-chip   H--P--W--L
+half-perimeter wirelength
+bounding box 
+net bounding box
+bounding boxes half-perimeter wirelength of the bounding box
+X--axis
+Y--axis
+Z--axis
+The X--axis
+The Y--axis
+The Z--axis
+the X--axis
+the Y--axis
+the Z--axis
+C--T--S
+F--D--S--O--I
+FinFET  FinFETs FET  FETs  bulk silicon planar device devices S--O--I
+A--E--S
+J--PEG
+V--G--A
+Leon--three--M--P
+Leon--three
+OpenSPARC
+OpenSPARC--T--two
+RISC
+RISC--five
+PULPino
+pin pins weighted sum combinations exhaustive search 
+red blue green black orange pink magenta bright dark white yellow violet purple dotted dashed line lines curve curves plot plots left right upper lower upper-left lower-left upper-right lower-right arrow arrows top bottom top-most bottom-most loop for loop while loop exit enter line pseudocode 
+C--MOS
+MOSFET MOSFETs
+N--FET N--FETs

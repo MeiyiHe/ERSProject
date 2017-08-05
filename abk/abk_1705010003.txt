@@ -1,0 +1,21 @@
+The previous results show acceptable correlations, but what about the ability to predict the unseen data? We implement a J PEG design with different clock period, number of stages and utilization, and we assess prediction of our models on this implementation.
+
+The problem is difficult because three D benefits vary with netlist topologies and constraints; the implementation space is very high dimensional; and the lack of a golden three D flow and a chicken and egg loop of trying to embed netlists not created for three D into three D.
+
+Further, if we assume a clock tree has one hundred K sinks and fanout of eight at each level, by replacing all the single bit flops with sixty four bit flop trays, we can reduce the clock tree depth from six to four.
+
+We compare our proposed methodology to two reference flows, the conventional methodology with only margin insertion; and a brute force method which uses error tolerant flip flops only for timing critical paths.
+
+We derive hybrid surrogate modeling or H S M surrogate models described in C four for each set and combine these models using weights determined from least squares regression.
+
+
+We use several modern machine learning techniques including artificial neural networks and random forests, and use large sized datasets of over one hundred K datapoints for training and testing.
+
+
+We hierarchically synthesize, place and route using multiple commercial tools: Synopsys D C and Cadence R C for synthesis, and Cadence S O C Encounter for place and route.
+
+
+Minimizing clock skew variation is a strong knob to fix this ''ping pong'' effect because only datapath fixes are not very effective when the clock paths have large variations.
+
+
+Our true three D objective is the weighted sum of half perimeter wirelength or H P W L zero of the bounding box of pins A and B on tier zero and H P W L one of the bounding box of pins C and D, both shown           in green color.

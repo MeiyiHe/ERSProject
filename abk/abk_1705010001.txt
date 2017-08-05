@@ -1,0 +1,13 @@
+From two D  P and R, we use max transition, max fanout, clock period, utilization, aspect ratio, P V T corners, percentage of memory area, internal, switching and leakage power values, wirelength and the number of buffers and inverters.
+
+The L S Q R approach is accurate because it captures fine grained implementation details, but is time consuming as it requires generating training sets obtained by simulating the post P and R flow several times.
+
+
+We divide the placement region into forty five by forty five track grids, and obtain max, min and coefficient of variation statistics of the following parameters: pin density, min proximity, number of complex cells, sum of edges, number of buried nets, etcetera.
+
+A three D is interesting because it achieves significantly better Q O R than S two D and provides opportunity for better predictions: of a three D power estimation tool here and for routability in three D that we will see in the next topic.
+
+
+A three D is interesting because it achieves significantly better Q O R than S two D and provides opportunity for better predictions: of a three D power estimation tool here and for routability in three D that we will see in the next topic.
+
+We further estimate throughput based on the equation shown in the red dotted box, in which E R is the error rate; R is the number of cycles required to recover from an error; and T is the clock period.

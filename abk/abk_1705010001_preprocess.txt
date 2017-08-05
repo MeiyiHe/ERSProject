@@ -1,0 +1,42 @@
+From2 two1 D1 P1
+and1 R4
+we5 use1 max1 transition4
+max5 fanout4
+clock5 period4
+utilization12
+aspect5 ratio4
+P5 V1 T1 corners4
+percentage5 of1 memory1 area4
+internal12
+switching5
+and1 leakage1 power1 values4
+wirelength5
+and1 the1 number1 of1 buffers1
+and1 inverters3
+The2 L1 S1 Q1 R1 approach1 is1 accurate1 because1 it1 captures1 fine1 grained1 implementation1 details4
+but5 is1 time1 consuming1 as1 it1 requires1 generating1 training1 sets1 obtained1 by1 simulating1 the1 post1 P1
+and1 R1 flow1 several1 times3
+We2 divide1 the1 placement1 region1 into1 forty1 five1 by1 forty1 five1 track1 grids4
+and5 obtain1 max4
+min5
+and1 coefficient1 of1 variation1 statistics1 of1 the1 following1 parameters1
+pin1 density4
+min5 proximity4
+number5 of1 complex1 cells4
+sum5 of1 edges4
+number5 of1 buried1 nets4
+etcetera13
+A2 three1 D1 is1 interesting1 because1 it1 achieves1 significantly1 better1 Q1 O1 R1 than1 S1 two1 D1
+and1 provides1 opportunity1 for1 better1 predictions1
+of1 a1 three1 D1 power1 estimation1 tool1 here1
+and1 for1 routability1 in1 three1 D1
+that1 we1 will1 see1 in1 the1 next1 topic3
+A2 three1 D1 is1 interesting1 because1 it1 achieves1 significantly1 better1 Q1 O1 R1 than1 S1 two1 D1
+and1 provides1 opportunity1 for1 better1 predictions1
+of1 a1 three1 D1 power1 estimation1 tool1 here1
+and1 for1 routability1 in1 three1 D1
+that1 we1 will1 see1 in1 the1 next1 topic3
+We2 further1 estimate1 throughput1 based1 on1 the1 equation1 shown1 in1 the1 red1 dotted1 box4
+in5 which1 E1 R1 is1 the1 error1 rate1
+R1 is1 the1 number1 of1 cycles1 required1 to1 recover1 from1 an1 error1
+and1 T1 is1 the1 clock1 period3

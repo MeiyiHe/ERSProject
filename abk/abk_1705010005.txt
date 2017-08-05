@@ -1,0 +1,24 @@
+To compensate the design capability gap, we pursue design based equivalent scaling, that is, to rely on design technology improvement to achieve performance, power, area and cost tradeoffs to rescue Moore s law scaling of value.
+
+
+When distance increases, the coupling cap will decrease. Thus, the voltage change due to crosstalk on this segment will increase, which leads to increased delay uncertainty.
+
+
+As is evident, the manual approach is quick and easy and can be used for pathfinding when technology libraries are unavailable; however, fine grained implementation details such as routed wire length and area, and power of setup buffers, etcetera.
+
+
+The second work in thrust one predicts three D I C benefit from two D I C implementations and has been presented at DAC two thousand fifteen.
+
+
+To predict Pareto frontiers from few, I E, less than twenty placements, we develop an algorithm to interpolate and extrapolate parameter values.
+
+
+Our future works include application of our methods to traces from real server workloads, expanding our methods to handle other objectives, and achieving solutions that are temperature history aware.
+
+
+In the last step of our optimization, we perform a matching optimization between available white spaces and gating logics, and insert gating logics as E C O steps.
+
+This slide compares our clustering solution which understands flop tray shapes versus a solution of the traditional K means clustering which treats each flop tray as a point.
+
+
+After each max flow optimization, if the currents between two partitions are not balanced, we cluster the nodes from the smaller partition, together with a neighbor node, into one super vertex.

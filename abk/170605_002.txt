@@ -1,0 +1,7 @@
+this slide shows this reference here
+this plot shows this link here 
+this slide explains the link given here 
+to explain this, we provide a chart
+we develop an efficient N log N time heuristic
+we propose a linear time quadratic time cubic time algorithm 
+the runtime of the algorithm is the running time of our algorithm of the heuristic is 

@@ -1,0 +1,34 @@
+We2 use1 one1 linear1 model1 LASSO1 with1 L1 one1 regularization4
+and5 three1 nonlinear1 models1 S1 V1 M1 with1 R1 B1 F1 kernel4
+A5 N1 N1 with1 one1 input4
+one5 output1
+and1 two1 hidden1 layers4
+and5 boosting1 with1 S1 V1 M1 as1 weak1 learners3
+We2 then1 scale1 supply1 voltages1 on1 the1 implemented1 designs1 
+as1 shown1 in1 the1 figures1
+to1 find1 the1 minimum1 energy1 point4
+but5 without1 causing1 timing1 violation1 at1 endpoints1 with1 normal1 flip1 flops1 at1 the1 slow1 corner3
+Thus9
+we5 only1 need1 to1 spend1 one1 hundred1 thousand1 dollars1
+and1 maybe1 two1 hours1 per1 design4
+instead5 of1 two1 hundred1
+and1 fifty1 thousand1 dollars1
+and1 six1 hours1 per1 run4
+to5 get1 the1 precision1 of1 S1 I1 timing1 analysis3
+Our2 solutions1 guarantee1 both1 acceptable1 performance1
+and1 acceptable1 throughput1
+and1 we1 empirically1 demonstrate1
+that1 our1 optimal1 solutions1 can1 achieve1 up1 to1 seventeen1 point1 four1 percent1 greater1 value1 in1 objective1 function1 as1 compared1 to1 baseline1 R1 C1 L1 G1 solutions3
+For2 each1 core1
+and1 for1 each1 combination1 in1 which1 the1 core1 is1 active4
+we5 perform1 power1
+and1 thermal1 simulations1 using1 discrete1 values1 of1 overdrive1 frequencies1
+and1 guarantee1 a1 one1 time1 lookup1 table1 of1 all1 possible1 values1 of1 overdrive1 frequencies4
+temperature5
+and1 acceleration1 factors3
+This2 figure1 plots1 the1 number1 of1 instances1 from1 netlists1 of1 Crossbar1 in1 synthesized1 router1 R1 T1 Ls4
+Netmaker5 from1 cambridge1
+and1 Stanford1 NOC1
+and1 Orion1 two1 point1 O1 in1 the1 y1 axis1
+and1 the1 number1 of1 ports1 in1 the1 x1 axis3
+I2 T1 teams1 within1 I1 C1 design1 companies1 must1 constantly1 evaluate1 ways1 to1 minimize1 cost1 to1 purchase1 new1 resources1 without1 significantly1 impacting1 project1 tapeout1 schedules3

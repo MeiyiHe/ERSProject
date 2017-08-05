@@ -1,0 +1,2 @@
+this2 slide1 shows1 this1 reference1 here1 this1 plot1 shows1 this1 link1 here1 this1 slide1 explains1 the1 link1 given1 here1 to1 explain1 this4
+we5 provide1 a1 chart1 we1 develop1 an1 efficient1 N1 log1 N1 time1 heuristic1 we1 propose1 a1 linear1 time1 quadratic1 time1 cubic1 time1 algorithm1 the1 runtime1 of1 the1 algorithm1 is1 the1 running1 time1 of1 our1 algorithm1 of1 the1 heuristic1 is1

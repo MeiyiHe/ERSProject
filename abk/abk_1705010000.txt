@@ -1,0 +1,13 @@
+After each move, we construct a new tree to mimic the actual tool routing and recalculate slew and delay of the upstream parent node and two levels of downstream child nodes. Interpolated delays and slews using classical methods Elmore delay, D two M, PERI do not match those of the golden timer s analysis.
+
+
+Works in this thesis that are suitable for follow on research include integrating signoff timing correlation models with timing optimization loops, modifying the formulation of the S C M so that timesteps can change automatically when schedule changes occur, and iterative optimizations to obtain more stable solutions.
+
+
+Our ongoing work includes development of models to predict a buffer location for minimum skew over a continuous range of possible buffer locations, and investigation of whether a worse initial start point can enable us to achieve larger skew variation reduction across corners.
+
+
+We develop methodologies using H H S M for three use models to answer questions that physical design engineers typically ask: first, which tool should be used; second, how should the tool be driven, which is similar to asking what is its field of use; and third, how wrong can the model guidance be.
+
+
+As part of our group s work on roadmapping for the international technology roadmap for semiconductors, or I T R S, we observe that lithography has continued to deliver ''available'' Moore s law scaling of transistor density growing at two X per node.

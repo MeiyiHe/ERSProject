@@ -1,0 +1,29 @@
+After2 each1 move4
+we5 construct1 a1 new1 tree1 to1 mimic1 the1 actual1 tool1 routing1
+and1 recalculate1 slew1
+and1 delay1 of1 the1 upstream1 parent1 node1
+and1 two1 levels1 of1 downstream1 child1 nodes3
+Interpolated2 delays1
+and1 slews1 using1 classical1 methods1 Elmore1 delay4
+D5 two1 M4
+PERI5 do1 not1 match1 those1 of1 the1 golden1 timer1 s1 analysis3
+Works2 in1 this1 thesis1
+that1 are1 suitable1 for1 follow1 on1 research1 include1 integrating1 signoff1 timing1 correlation1 models1 with1 timing1 optimization1 loops4
+modifying5 the1 formulation1 of1 the1 S1 C1 M1 so1
+that1 timesteps1 can1 change1 automatically1 when1 schedule1 changes1 occur4
+and5 iterative1 optimizations1 to1 obtain1 more1 stable1 solutions3
+Our2 ongoing1 work1 includes1 development1 of1 models1 to1 predict1 a1 buffer1 location1 for1 minimum1 skew1 over1 a1 continuous1 range1 of1 possible1 buffer1 locations4
+and5 investigation1 of1 whether1 a1 worse1 initial1 start1 point1 can1 enable1 us1 to1 achieve1 larger1 skew1 variation1 reduction1 across1 corners3
+We2 develop1 methodologies1 using1 H1 H1 S1 M1 for1 three1 use1 models1 to1 answer1 questions1
+that1 physical1 design1 engineers1 typically1 ask1
+first4
+which5 tool1 should1 be1 used1
+second4
+how5 should1 the1 tool1 be1 driven4
+which5 is1 similar1 to1 asking1 what1 is1 its1 field1 of1 use1
+and1 third4
+how5 wrong1 can1 the1 model1 guidance1 be3
+As2 part1 of1 our1 group1 s1 work1 on1 roadmapping1 for1 the1 international1 technology1 roadmap1 for1 semiconductors4
+or5 I1 T1 R1 S4
+we5 observe1
+that1 lithography1 has1 continued1 to1 deliver1 available1 Moore1 s1 law1 scaling1 of1 transistor1 density1 growing1 at1 two1 X1 per1 node3

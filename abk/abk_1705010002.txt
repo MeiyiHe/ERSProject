@@ -1,0 +1,13 @@
+We use one linear model - LASSO with L one regularization, and three nonlinear models - S V M with R B F kernel, A N N with one input, one output and two hidden layers, and boosting with S V M as weak learners.
+
+We then scale supply voltages on the implemented designs (as shown in the figures) to find the minimum-energy point, but without causing timing violation at endpoints with normal flip-flops at the slow corner.        
+
+Thus, we only need to spend one hundred thousand dollars and maybe two hours per design, instead of two hundred and fifty thousand dollars and six hours per run, to get the precision of S I timing analysis.
+
+Our solutions guarantee both "acceptable performance" and "acceptable throughput" and we empirically demonstrate that our optimal solutions can achieve up to seventeen point four percent greater value in objective function as compared to baseline R C L G solutions.
+
+For each core and for each combination in which the core is active, we perform power and thermal simulations using discrete values of overdrive frequencies and guarantee a one-time lookup table of all possible values of overdrive frequencies, temperature and acceleration factors.
+
+This figure plots the number of instances from netlists of Crossbar in synthesized router R T-Ls,  Netmaker from cambridge and Stanford NOC and Orion two point O in the y-axis and the number of ports in the x-axis.
+
+I T teams within I C design companies must constantly evaluate ways to minimize cost to purchase new resources without significantly impacting project tapeout schedules.

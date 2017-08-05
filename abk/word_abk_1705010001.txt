@@ -1,0 +1,12 @@
+farad farads picofarad picofarads femtofarad femtofarads joule joules nanojoule nanojoules picojoule picojoules femtojoule femtojoules ohm ohms milliohm milliohms volt volts millivolt millivolts resistance capacitance inductance henry henries wire device 
+
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
+
+megahertz gigahertz terahertz hertz
+milli micro nano pico femto atto kilo mega giga tera
+FET FETs RAM RAMs  
+
+net nets cell cells module modules instance instances block blocks 
+VLSI
+LSI
+wafer wafer-scale integration integrated very large-scale integrated very large-scale integration die model hardware correlation model-hardware correlation correlated variation variability manufacturing at manufacture at design design-technology co-optimization  

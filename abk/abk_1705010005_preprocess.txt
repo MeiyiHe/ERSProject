@@ -1,0 +1,42 @@
+To2 compensate1 the1 design1 capability1 gap4
+we5 pursue1 design1 based1 equivalent1 scaling4
+that5 is4
+to5 rely1 on1 design1 technology1 improvement1 to1 achieve1 performance4
+power12
+area5
+and1 cost1 tradeoffs1 to1 rescue1 Moore1 s1 law1 scaling1 of1 value3
+When2 distance1 increases4
+the5 coupling1 cap1 will1 decrease3
+Thus9
+the5 voltage1 change1 due1 to1 crosstalk1 on1 this1 segment1 will1 increase4
+which5 leads1 to1 increased1 delay1 uncertainty3
+As2 is1 evident4
+the5 manual1 approach1 is1 quick1
+and1 easy1
+and1 can1 be1 used1 for1 pathfinding1 when1 technology1 libraries1 are1 unavailable1
+however4
+fine5 grained1 implementation1 details1 such1 as1 routed1 wire1 length1
+and1 area4
+and5 power1 of1 setup1 buffers4
+etcetera13
+The2 second1 work1 in1 thrust1 one1 predicts1 three1 D1 I1 C1 benefit1 from1 two1 D1 I1 C1 implementations1
+and1 has1 been1 presented1 at1 DAC1 two1 thousand1 fifteen3
+To2 predict1 Pareto1 frontiers1 from1 few4
+I5 E4
+less5 than1 twenty1 placements4
+we5 develop1 an1 algorithm1 to1 interpolate1
+and1 extrapolate1 parameter1 values3
+Our2 future1 works1 include1 application1 of1 our1 methods1 to1 traces1 from1 real1 server1 workloads4
+expanding5 our1 methods1 to1 handle1 other1 objectives4
+and5 achieving1 solutions1
+that1 are1 temperature1 history1 aware3
+In2 the1 last1 step1 of1 our1 optimization4
+we5 perform1 a1 matching1 optimization1 between1 available1 white1 spaces1
+and1 gating1 logics4
+and5 insert1 gating1 logics1 as1 E1 C1 O1 steps3
+This2 slide1 compares1 our1 clustering1 solution1 which1 understands1 flop1 tray1 shapes1 versus1 a1 solution1 of1 the1 traditional1 K1 means1 clustering1 which1 treats1 each1 flop1 tray1 as1 a1 point3
+After2 each1 max1 flow1 optimization4
+if5 the1 currents1 between1 two1 partitions1 are1 not1 balanced4
+we5 cluster1 the1 nodes1 from1 the1 smaller1 partition4
+together5 with1 a1 neighbor1 node4
+into5 one1 super1 vertex3
