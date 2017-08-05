@@ -1,0 +1,33 @@
+genLib.py
+
+python genLib.py -u abk -f 170720_001 -a m -t phon
+python genLib.py -u abk -f 170720_001 -a m -t punc
+python genLib.py -u abk -f 170720_001 -a p -t phon
+python genLib.py -u abk -f 170720_001 -a p -t punc
+
+
+covering.py
+
+m_phon
+
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 0 -pause natural -o test     		#cost
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 1 -pause natural -o test 
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 2 -pause natural -o test 
+
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 1 -pause silence -o test           #pause
+
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 1 -rate 0 -o test 					#rate
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 1 -o test -end 500					#end
+python covering.py -u abk -f covering_test_V1.txt -a m -t phon -cost 1 									#output_folder
+
+m_punc
+python covering.py -u abk -f covering_test_V1.txt -a m -t punc -pause silence -o test 					#pause
+python covering.py -u abk -f covering_test_V1.txt -a m -t punc -pause natural -o test
+
+python covering.py -u abk -f covering_test_V1.txt -a m -t punc -o test -end 500 						#end
+python covering.py -u abk -f covering_test_V1.txt -a m -t punc -end 500
+
+p_phon
+
+p_punc
+
