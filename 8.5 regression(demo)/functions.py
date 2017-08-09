@@ -23,6 +23,7 @@ def genDic(m, dic, lab, script, soundinpath, aligner):
 	#convert txt script to lab script (used in aligner)
 	script_r = open(script)
 	contents = unicodetoascii(script_r.read())
+	contents = contents.replace("-", ' ')
 	if aligner == 'm':
 		contents = ''.join(ch for ch in contents if ch not in set(string.punctuation))
 	else:
@@ -83,6 +84,7 @@ def runP(p, lab, script, soundinpath):
 	script_r = open(script)
 	contents = unicodetoascii(script_r.read())
 	contents = contents.replace("'",' ')
+	contents = contents.replace("-", ' ')
 	contents = ''.join(ch for ch in contents if ch not in set(string.punctuation))
 	contents = ' '.join(contents.split('\n'))
 	contents = ' '.join(contents.split())
